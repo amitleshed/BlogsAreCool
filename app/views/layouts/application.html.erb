@@ -3,21 +3,30 @@
 <head>
   <title>Blogsarecooltake2</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div>
-    <%= link_to 'Home', root_path %>
+<header class="mdl-layout__header" id="nav-wrapper">
+    <div class="mdl-layout__header-row">
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+      <% if user_signed_in? %>
+        <%= link_to 'Sign Out', destroy_user_session_path,class:"mdl-navigation__link", :method => :delete, id: "sign-out" %>
+      <% else %>
+         <%= link_to 'Sign up', new_user_registration_path, class:"mdl-navigation__link" %>
+         <%= link_to 'Sign in', new_user_session_path, class:"mdl-navigation__link" %>
+      <% end %>
+      <%= link_to 'BlogsAreCool', root_path, class:"mdl-navigation__link", id:"title" %>
+      </nav>
+    </div>
+  </header>
   <% if user_signed_in? %>
-    <%= link_to 'Create an Article', new_article_path %>
-    <%= link_to 'Sign Out', destroy_user_session_path, id: "sign-out" %>
-  <% else %>
-     <%= link_to 'Sign up', new_user_registration_path %>
-     <%= link_to 'Sign in', new_user_session_path %>
+    <%= link_to new_article_path, class: "mdl-button mdl-js-button mdl-button--fab", id:"add-btn" do %>
+      <i class="material-icons">add</i>
+    <% end %>
   <% end %>
-     
-  </div>
 
 <%= yield %>
 

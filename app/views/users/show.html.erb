@@ -1,5 +1,24 @@
 <h1><%=@user.email%>'s Profile</h1>
-<% current_user.articles.each do |article| %>
-  <h1 id="article-title"><%=  article.title %></h1>
-  <p id="article-des"><%=  article.description %></p>
+
+<% @user.articles.each do |article| %>
+
+<div class="demo-card-wide mdl-card mdl-shadow--2dp" id="article-card">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text"><%=  article.title %></h2>
+  </div>
+  <div class="mdl-card__supporting-text" id="card-text">
+    <p id="text"><%=  article.description %></p>
+  </div>
+  <div class="mdl-card__menu">
+    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+      <i class="material-icons">share</i>
+    </button>
+    <% if current_user.id == article.user_id %>
+      <%= link_to 'Delete',  article,  method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </div>
+</div>
+
+<br><br>
+
 <% end %>

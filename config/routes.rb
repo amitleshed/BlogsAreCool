@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'articles/new'
-
   get 'profiles/:id', to: 'users#show', as: 'profiles'
 
   resources :articles
