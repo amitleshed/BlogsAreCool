@@ -1,4 +1,4 @@
-<h1><%=@user.email%>'s Profile</h1>
+<h1><%=@user.username%>'s Profile</h1>
 
 <% @user.articles.each do |article| %>
 
@@ -13,10 +13,12 @@
     <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
       <i class="material-icons">share</i>
     </button>
-    <% if current_user.id == article.user_id %>
-      <%= link_to 'Delete',  article,  method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% if user_signed_in? %>
+      <% if current_user.id == article.user_id %>
+        <%= link_to 'Delete',  article,  method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
     <% end %>
-  </div>
+      </div>
 </div>
 
 <br><br>

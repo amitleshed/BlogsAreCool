@@ -1,5 +1,12 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<div id="second-color-div">
+<br><br><br>
+<br><br><br>
+  <%= image_tag("blogsarecool.png", class:"second-title")%>
+</div>
+<br>
+<h1 id="list-title">Just a title</h1>
+<br><br><br>
 <% @users.each do |user| %>
-  <p id="user-link"><%= link_to user.email, profiles_path(user.id) %></p>
+  <p><%= link_to user.username, profiles_path(user.id), id:"user-link" %></p>
+  <p><%= user.articles.count%> Articles </p>
 <% end %>
