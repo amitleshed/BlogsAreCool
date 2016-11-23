@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  def User.search(parameter) 
+  where("users.username LIKE ?", "%#{parameter}%")
+  end
 end

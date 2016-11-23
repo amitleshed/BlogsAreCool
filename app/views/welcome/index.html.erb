@@ -5,6 +5,15 @@
 </div>
 <br>
 <h1 id="list-title">Just a title</h1>
+<br>
+
+<%= form_tag root_path, :method => 'get' do %>
+<p>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search", :name => nil, class:"mdl-button mdl-js-button mdl-button--raised"%>
+</p>
+<% end %>
+
 <br><br><br>
 <% @users.each do |user| %>
   <p><%= link_to user.username, profiles_path(user.id), id:"user-link" %></p>
