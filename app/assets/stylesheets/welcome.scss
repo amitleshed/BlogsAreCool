@@ -25,3 +25,29 @@
   color: #BDBDBD;
   letter-spacing: 5px;
 }
+#search-div{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#search-btn{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.footer{
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  background-color: #FF1744;
+  bottom: 0;
+}
+.github{
+  padding-top: 6px;
+  opacity: 0.8;
+  display: block;
+  height: 2em;
+  width: 2em;
+  margin-right: auto;
+  margin-left: auto;
+}

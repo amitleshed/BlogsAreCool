@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'votes/up'
-
-  get 'votes/down'
-
   get 'profiles/:id', to: 'users#show', as: 'profiles'
+
+  post 'users/vote', to: 'users#vote'
 
   resources :articles
 

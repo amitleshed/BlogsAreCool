@@ -13,11 +13,11 @@
     <% if user_signed_in? %>
       <% if current_user.id == article.user_id %>
         <%= link_to 'Delete',  article,  method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Vote', users_vote_path(article_id: article.id), method: :post %>
+        <br>
+        Votes: <%= article.votes.count %>
       <% end %>
     <% end %>
+<% end %>
       </div>
 </div>
-
-<br><br>
-
-<% end %>

@@ -7,15 +7,20 @@
 <h1 id="list-title">Just a title</h1>
 <br>
 
-<%= form_tag root_path, :method => 'get' do %>
-<p>
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag "Search", :name => nil, class:"mdl-button mdl-js-button mdl-button--raised"%>
-</p>
-<% end %>
+
+<form action="/" accept-charset="UTF-8" method="get" >
+<div class="mdl-textfield mdl-js-textfield" id="search-div">
+  <input type="text" name="search" id="search-field" class="mdl-textfield__input">
+  <label class="mdl-textfield__label" for="search-field">Text...</label>
+</div>
+</form>
+
 
 <br><br><br>
 <% @users.each do |user| %>
   <p><%= link_to user.username, profiles_path(user.id), id:"user-link" %></p>
   <p><%= user.articles.count%> Articles </p>
 <% end %>
+<div class="footer">
+  <%= link_to image_tag("github-logo.png", class:"github"), "http://www.github.com/amitleshed" %>
+</div>
