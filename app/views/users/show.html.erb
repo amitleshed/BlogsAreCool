@@ -1,23 +1,50 @@
 <h1 id="list-title"><%=@user.username%>'s Blog</h1>
 <br><br>
 <% @user.articles.each do |article| %>
+  <div class="demo-card-wide mdl-card mdl-shadow--2dp" id="article-card">
+    <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text"><%=  article.title %></h2>
+    </div>
+    <div class="mdl-card__supporting-text" id="card-text">
+      <p id="text"><%=  article.description %></p>
+      
+      <p id="comments">
+              <% article.comments.each do |comment| %>
+                <%= comment.description %>
+                <br>
+              <% end %>
+      </p>
+      <br>
+      <%= form_for [article, @comment] do |f| %> 
+      <br>
+          <p>
+          <br>
+             <%= f.label :description %><br>
+             <%= f.text_field :description %>
+          </p>
+          <p>
+              <%=f.submit%>
+          </p>
+        <% end %>
 
-<div class="demo-card-wide mdl-card mdl-shadow--2dp" id="article-card">
-  <div class="mdl-card__title">
-    <h2 class="mdl-card__title-text"><%=  article.title %></h2>
-  </div>
-  <div class="mdl-card__supporting-text" id="card-text">
-    <p id="text"><%=  article.description %></p>
-  </div>
-  <div class="mdl-card__menu">
-    <% if user_signed_in? %>
-      <% if current_user.id == article.user_id %>
-        <%= link_to 'Delete',  article,  method: :delete, data: { confirm: 'Are you sure?' } %>
-        <%= link_to 'Vote', users_vote_path(article_id: article.id), method: :post %>
-        <br>
-        Votes: <%= article.votes.count %>
+
+    </div>
+    <div class="mdl-card__menu" id="article-<%= article.id %>">
+      <% if user_signed_in? %>
+        <% if current_user.id == article.user_id %>
+          <%= link_to '',  article,class: "glyphicon glyphicon-trash",id:"glyphicons", method: :delete, data: { confirm: 'Are you sure?' } %>
+          <br>
+        <% end %>
+        <%= link_to '', users_vote_path(article_id: article.id), remote: true, class: "glyphicon glyphicon-chevron-up", id:"glyphicons", method: :post %>
       <% end %>
+      <span id="votes-article-<%=article.id%>"><%= article.votes.count %></span>
+      
+      <script type="text/javascript">
+        // $.get('/profiles/5.json', function(data) {
+        //   console.log(data.article_id);
+        // })
+      </script>
+        </div>
+  </div>
+   <br><br>
     <% end %>
-<% end %>
-      </div>
-</div>

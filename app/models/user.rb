@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :articles, dependent: :destroy
   has_many :votes
+  has_many :comments
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -14,4 +15,16 @@ class User < ActiveRecord::Base
      vote = self.votes.create(article_id: article_id)
      vote.save
    end
+
+def voted?(article_id)
+  unless self.votes.where(article_id: article_id).first
+    return false
+  end
+  return true
+end
+
+   def comment(article_id)
+    comment = self.comments.create(article_id: article_id)
+    comment.save
+  end
 end

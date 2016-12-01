@@ -4,7 +4,11 @@ Rails.application.routes.draw do
 
   post 'users/vote', to: 'users#vote'
 
-  resources :articles
+  post 'users/comment', to: 'users#comment'
+
+  resources :articles do
+    resources :comments
+  end
 
   devise_for :users
 

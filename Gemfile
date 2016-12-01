@@ -45,5 +45,7 @@ group :development do
   gem 'spring'
   gem 'devise'
   gem 'material_design_lite-sass', '~> 1.2', '>= 1.2.1'
+  gem 'bootstrap-glyphicons', '~> 0.0.1'
+  gem 'bootstrap-social-rails'
 end
 

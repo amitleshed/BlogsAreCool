@@ -1,20 +1,19 @@
 <div id="second-color-div">
 <br><br><br>
-<br><br><br>
+<br><br>
   <%= image_tag("blogsarecool.png", class:"second-title")%>
-</div>
-<br>
-<h1 id="list-title">Just a title</h1>
-<br>
-
-
-<form action="/" accept-charset="UTF-8" method="get" >
+  <br>
+  <form action="/" accept-charset="UTF-8" method="get" >
 <div class="mdl-textfield mdl-js-textfield" id="search-div">
   <input type="text" name="search" id="search-field" class="mdl-textfield__input">
   <label class="mdl-textfield__label" for="search-field">Text...</label>
 </div>
 </form>
 
+</div>
+<br><br>
+<h1 id="list-title">Just a title</h1>
+<br>
 
 <br><br><br>
 <% @users.each do |user| %>

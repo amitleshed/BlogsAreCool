@@ -12,8 +12,10 @@
  *
  *= require_tree .
  *= require_self
+  *= require bootstrap-social
  */
  @import 'material';
+ @import 'bootstrap/glyphicons';
  body{
   font-family: 'Ubuntu', sans-serif !important;
   margin-top: 5em;
@@ -78,4 +80,7 @@ li{
 }
 #add-btn{
   z-index: 1;
+}
+#glyphicons{
+  text-decoration: none;
 }

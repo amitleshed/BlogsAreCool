@@ -1,6 +1,7 @@
 class Article < ActiveRecord::Base
   belongs_to :user
   has_many :votes
+  has_many :comments
 
   # after_create :create_vote
 
