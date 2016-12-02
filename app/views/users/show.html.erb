@@ -1,3 +1,4 @@
+<br>
 <h1 id="list-title"><%=@user.username%>'s Blog</h1>
 <br><br>
 <% @user.articles.each do |article| %>
@@ -8,24 +9,26 @@
     <div class="mdl-card__supporting-text" id="card-text">
       <p id="text"><%=  article.description %></p>
       
-      <p id="comments">
+<p id="border"/>
+      <div id="comments">
               <% article.comments.each do |comment| %>
+              <p id="comment-username">
+               <%= link_to  User.find(comment.user_id).username, profiles_path(comment.user_id), id:"comment-user-link" %>
+              </p>
+              <p id="comment-content">
                 <%= comment.description %>
-                <br>
+               </p>
+                <p id="border"/>
               <% end %>
-      </p>
-      <br>
+      </div>
+
       <%= form_for [article, @comment] do |f| %> 
       <br>
           <p>
           <br>
-             <%= f.label :description %><br>
-             <%= f.text_field :description %>
-          </p>
-          <p>
-              <%=f.submit%>
-          </p>
-        <% end %>
+             <%= f.label :comment %><br>
+             <%= f.text_field :description, id: "comment-field" %>
+          </p>        <% end %>
 
 
     </div>

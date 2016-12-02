@@ -34,7 +34,7 @@
 }
  h1, h2{
   text-align: center;
-    font-family: 'Lobster', cursive;
+  font-family: 'Aref Ruqaa', serif;
   color: #BDBDBD;
   letter-spacing: 5px;
  }
@@ -45,7 +45,7 @@ p{
 ul{
   top: 0;
   margin: 0;
-  background-color: #78909C !important; /*00838F*/
+  background-color: #455A64 !important; 
   height: 60px;
   position: fixed;
   width: 100%;
@@ -57,6 +57,7 @@ ul{
   z-index: 0 !important;
   margin-left: auto;
   margin-right: auto;
+  width: 50%;
 }
 #add-btn{
     position:fixed;

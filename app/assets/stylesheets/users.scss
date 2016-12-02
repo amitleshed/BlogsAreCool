@@ -8,3 +8,24 @@
     -moz-text-align-last: right; /* Code for Firefox */
     text-align-last: right;
 }
+#border{
+  border-top: solid thin #E0E0E0;
+}
+#comment-username{
+  color: #FF1744;
+  opacity: 0.6;
+}
+#comment-field{
+  margin-left: auto;
+  margin-right: auto;
+  width: 60% !important;
+  height: 80px;
+  resize: none;
+  focus: none;
+}
+ #comment-field:focus {
+outline: 0;
+}
+#comment-user-link{
+  text-decoration: none;
+}

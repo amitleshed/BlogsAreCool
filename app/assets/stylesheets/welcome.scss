@@ -18,11 +18,11 @@
 #second-color-div{
   margin-top: -5em;
   height: 15em;
-  background-color: #78909C;
+  background-color: #455A64;
 }
 #list-title{
   font-family: 'Lobster', cursive;
-  color: #BDBDBD;
+  color: #90A4AE;
   letter-spacing: 5px;
 }
 #search-div{
@@ -40,7 +40,7 @@
   height: 40px;
   background-color: #FF1744;
   bottom: 0;
-  margin-top: 10em !important;
+  margin-top: 16em !important;
 }
 .github{
   padding-top: 6px;
@@ -50,4 +50,9 @@
   width: 2em;
   margin-right: auto;
   margin-left: auto;
+}
+#search-field{
+}
+#search-field:focus{
+  outline: 0;
 }
