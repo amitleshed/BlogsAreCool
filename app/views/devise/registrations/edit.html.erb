@@ -12,7 +12,12 @@
 
   <div class="field">
     <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true, id:"fields"%>
+    <%= f.text_field :username, id:"fields"%>
+  </div>
+
+    <div class="field">
+    <%= f.label :image %><br />
+    <%= f.text_field :image, id:"fields"%>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

@@ -47,5 +47,9 @@ group :development do
   gem 'material_design_lite-sass', '~> 1.2', '>= 1.2.1'
   gem 'bootstrap-glyphicons', '~> 0.0.1'
   gem 'bootstrap-social-rails'
+  gem 'paperclip', '~> 5.1'
+  gem 'image_magick', '~> 0.1.9'
+  gem 'imagemagick-identify', '~> 0.0.1'
+  
 end
 

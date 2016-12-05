@@ -3,22 +3,24 @@
 <br><br>
   <%= image_tag("blogsarecool.png", class:"second-title")%>
   <br>
-  <form action="/" accept-charset="UTF-8" method="get" >
-<div class="mdl-textfield mdl-js-textfield" id="search-div">
-  <input type="text" name="search" id="search-field" class="mdl-textfield__input">
-  <label class="mdl-textfield__label" for="search-field">Username...</label>
-</div>
 </form>
 
 </div>
 <br><br>
-<h1 id="list-title">Just a title</h1>
-<br>
+<div class="mdl-textfield mdl-js-textfield" id="search-div">
+  <form action="/" accept-charset="UTF-8" method="get" >
+  <input type="text" name="search" id="search-field" class="mdl-textfield__input">
+  <label class="mdl-textfield__label" for="search-field" >Username...</label>
+</div>
 
 <br><br><br>
 <% @users.each do |user| %>
+<br><br>
+<%= image_tag(user.image, id: "img-small") %><br>
   <p><%= link_to user.username, profiles_path(user.id), id:"user-link" %></p>
   <p><%= user.articles.count%> Articles </p>
+  <br><br>
+  <p id="border-small"></p>
 <% end %>
 <div class="footer">
   <%= link_to image_tag("github-logo.png", class:"github"), "http://www.github.com/amitleshed" %>

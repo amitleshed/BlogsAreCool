@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   post 'users/comment', to: 'users#comment'
 
+  delete 'comments/destroy', to: 'comments#destroy'
+
   resources :articles do
     resources :comments
   end

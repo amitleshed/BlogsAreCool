@@ -1,5 +1,7 @@
-<br>
+<br><br>
+<%= image_tag(@user.image, id: "img-big") %>
 <h1 id="list-title"><%=@user.username%>'s Blog</h1>
+
 <br><br>
 <% @user.articles.each do |article| %>
   <div class="demo-card-wide mdl-card mdl-shadow--2dp" id="article-card">
@@ -13,7 +15,10 @@
       <div id="comments">
               <% article.comments.each do |comment| %>
               <p id="comment-username">
-               <%= link_to  User.find(comment.user_id).username, profiles_path(comment.user_id), id:"comment-user-link" %>
+               <%= link_to User.find(comment.user_id).username, profiles_path(comment.user_id), id:"comment-user-link" %>
+              </p>
+              <p id="comment-created-at">
+                <%= comment.created_at.strftime("%d %b %Y") %>
               </p>
               <p id="comment-content">
                 <%= comment.description %>
