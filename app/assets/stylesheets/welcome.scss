@@ -44,12 +44,15 @@
 }
 .github{
   padding-top: 6px;
-  opacity: 0.8;
   display: block;
   height: 2em;
   width: 2em;
   margin-right: auto;
   margin-left: auto;
+  opacity: 0.7;
+    &:hover{
+    opacity: 0.9;
+  }
 }
 .mdl-textfield__input{
   color: #BDBDBD !important;

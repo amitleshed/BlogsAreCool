@@ -12,10 +12,11 @@
       <p id="text"><%=  article.description %></p>
       
 <p id="border"/>
+
       <div id="comments">
               <% article.comments.each do |comment| %>
               <p id="comment-username">
-               <%= link_to User.find(comment.user_id).username, profiles_path(comment.user_id), id:"comment-user-link" %>
+               <%= link_to comment.user.username, profiles_path(comment.user_id), id:"comment-user-link" %>
               </p>
               <p id="comment-created-at">
                 <%= comment.created_at.strftime("%d %b %Y") %>
@@ -27,14 +28,16 @@
               <% end %>
       </div>
 
+<% if user_signed_in? %>
       <%= form_for [article, @comment] do |f| %> 
       <br>
           <p>
           <br>
              <%= f.label :comment %><br>
              <%= f.text_field :description, id: "comment-field" %>
-          </p>        <% end %>
-
+          </p>        
+      <% end %>
+<% end %>
 
     </div>
     <div class="mdl-card__menu" id="article-<%= article.id %>">
