@@ -50,6 +50,7 @@ group :development do
   gem 'paperclip', '~> 5.1'
   gem 'image_magick', '~> 0.1.9'
   gem 'imagemagick-identify', '~> 0.0.1'
+  gem 'font-awesome-rails', '~> 4.7'
   
 end
 

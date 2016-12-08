@@ -46,3 +46,11 @@ outline: 0;
   border-radius: 20%;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
+#delete-comment{
+  float: right;
+  text-decoration: none;
+   opacity: 0.6;
+  &:hover{
+    opacity: 0.9;
+  }
+}

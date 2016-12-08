@@ -10,12 +10,16 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require font-awesome
  *= require_tree .
  *= require_self
   *= require bootstrap-social
  */
  @import 'material';
  @import 'bootstrap/glyphicons';
+ @import "font-awesome";
+
+
  body{
   font-family: 'Ubuntu', sans-serif !important;
   margin-top: 5em;
@@ -66,11 +70,14 @@ ul{
 }
 li{
   text-decoration: none;
-  color: white;
   margin: 16px 0 0 0px;
   display: block;
   float: right;
   width: 10%;
+  opacity: 0.8;
+  &:hover{
+    opacity: 1;
+  }
 }
 #nav-btns,#sign-out{
   text-decoration: none;

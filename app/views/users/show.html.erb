@@ -12,9 +12,13 @@
       <p id="text"><%=  article.description %></p>
       
 <p id="border"/>
-
+<br>
+<!-- Comments icon -->
+<i class="fa fa-comments fa-3x" aria-hidden="true" style="opacity:0.3;"></i>
+      <!-- Comments -->
       <div id="comments">
               <% article.comments.each do |comment| %>
+
               <p id="comment-username">
                <%= link_to comment.user.username, profiles_path(comment.user_id), id:"comment-user-link" %>
               </p>
@@ -24,11 +28,21 @@
               <p id="comment-content">
                 <%= comment.description %>
                </p>
+
+            <!-- Deleting comment -->
+            <% if user_signed_in?%>
+                  <% if comment.user_id == current_user.id%>
+                      <%= link_to '', [article, comment], remote:true, method: :delete, data: { confirm: 'Are you sure?' }, id:"delete-comment", class: "glyphicon glyphicon-trash" %> 
+                  <% end %>
+            <% end %>
+
+
+                <br>
                 <p id="border"/>
               <% end %>
       </div>
 
-<% if user_signed_in? %>
+<% if user_signed_in? %> <!-- Comment form -->
       <%= form_for [article, @comment] do |f| %> 
       <br>
           <p>
@@ -39,15 +53,22 @@
       <% end %>
 <% end %>
 
+<% if article.comments.count == 0 %> <!-- If there are no comments - show message -->
+  <p style="opacity:0.3;">No comments yet.</p>
+<% end %>
+
     </div>
     <div class="mdl-card__menu" id="article-<%= article.id %>">
-      <% if user_signed_in? %>
+
+      <% if user_signed_in? %> <!-- Deleting an article -->
         <% if current_user.id == article.user_id %>
           <%= link_to '',  article,class: "glyphicon glyphicon-trash",id:"glyphicons", method: :delete, data: { confirm: 'Are you sure?' } %>
           <br>
         <% end %>
+        <!-- Vote button -->
         <%= link_to '', users_vote_path(article_id: article.id), remote: true, class: "glyphicon glyphicon-chevron-up", id:"glyphicons", method: :post %>
       <% end %>
+      <!-- Votes counter -->
       <span id="votes-article-<%=article.id%>"><%= article.votes.count %></span>
       
       <script type="text/javascript">
