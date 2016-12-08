@@ -1,27 +1,27 @@
 <div id="second-color-div">
 <br><br><br>
 <br><br>
-  <%= image_tag("blogsarecool.png", class:"second-title")%>
+  <%= image_tag("blogsarecool.png", id:"second-title",class:"animated pulse")%>
   <br>
 </form>
 
 </div>
-<br><br>
+<br><br><br>
 <div class="mdl-textfield mdl-js-textfield" id="search-div">
   <form action="/" accept-charset="UTF-8" method="get" >
-  <input type="text" name="search" id="search-field" class="mdl-textfield__input" style="color:white !important;">
+  <input type="text" name="search" id="search-field" class="mdl-textfield__input">
   <label class="mdl-textfield__label" for="search-field" >Username...</label>
 </div>
 
-<br><br><br>
+<br>
 <% @users.each do |user| %>
 <br><br>
 <%= image_tag(user.image, id: "img-small") %><br>
   <p><%= link_to user.username, profiles_path(user.id), id:"user-link" %></p>
-  <p><%= user.articles.count%> Articles </p>
+  <p style="opacity:0.3;"><%= user.articles.count%> Articles </p>
   <br><br>
   <p id="border-small"></p>
 <% end %>
 <div class="footer">
-  <%= link_to image_tag("github-logo.png", class:"github"), "http://www.github.com/amitleshed" %>
+  <%= link_to image_tag("github-logo.png", id:"github", class:"animated jello"), "http://www.github.com/amitleshed" %>
 </div>

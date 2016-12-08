@@ -51,6 +51,7 @@ group :development do
   gem 'image_magick', '~> 0.1.9'
   gem 'imagemagick-identify', '~> 0.0.1'
   gem 'font-awesome-rails', '~> 4.7'
+  gem 'animate-rails', '~> 1.0', '>= 1.0.10'
   
 end
 

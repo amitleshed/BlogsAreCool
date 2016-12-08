@@ -7,12 +7,13 @@
   <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Aref+Ruqaa" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
     <ul>
       <span>
-        <%= link_to image_tag("BlogsAreCoolLogo.png", class:"title"), root_path %>
+        <%= link_to image_tag("BlogsAreCoolLogo.png", id:"title",class:"animated fadeInLeft"), root_path %>
       </span>
       <% if user_signed_in? %>
       <li>
