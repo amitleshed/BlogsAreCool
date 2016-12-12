@@ -41,7 +41,6 @@ group :development, :test do
   gem 'byebug'
 end
 
-group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
@@ -57,6 +56,4 @@ group :development do
   gem 'imagemagick-identify', '~> 0.0.1'
   gem 'font-awesome-rails', '~> 4.7'
   gem 'animate-rails', '~> 1.0', '>= 1.0.10'
-  
-end
 
