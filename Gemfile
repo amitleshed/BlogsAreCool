@@ -44,8 +44,13 @@ group :development do
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+
+  group :production  do
+    gem 'devise'
+  end
+
   gem 'spring'
-  gem 'devise'
+  gem 'devise' 
   gem 'material_design_lite-sass', '~> 1.2', '>= 1.2.1'
   gem 'bootstrap-glyphicons', '~> 0.0.1'
   gem 'bootstrap-social-rails'
