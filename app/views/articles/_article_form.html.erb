@@ -1,0 +1,11 @@
+<% @article = Article.new %>
+<%= form_for @article do |f| %>
+<div class="article-form"
+    <p id="form-label"><%= f.label :title %></p>
+    <%= f.text_field :title, :class => 'form-control' %><br>
+    <p id="form-label"><%= f.label :description%></p>
+      <%= f.text_area :description, :class => 'form-control', :id => "text-field"%>
+    </p>
+      <%=f.submit "Create", :class => 'mdl-button mdl-js-button mdl-js-ripple-effect' %>
+  </div>
+<% end %>

@@ -16,6 +16,8 @@
  *= require_self
   *= require bootstrap-social
  */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
  @import 'material';
  @import 'bootstrap/glyphicons';
  @import "font-awesome";
@@ -51,6 +53,10 @@
 p{
   text-align: center;
 }
+#form-label{
+    font-family: 'Ubuntu', sans-serif !important;
+  font-weight: 100;
+}
 
 ul{
   top: 0;
@@ -62,39 +68,46 @@ ul{
   z-index: 1;
   opacity: 1.0;
 }
-
-#article-card{
-  z-index: 0 !important;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-}
 #add-btn{
     position:fixed;
     bottom:10px;
     right:10px;
 }
-#search-bar{
-  float: right !important;
-}
 li{
   text-decoration: none;
-  margin: 16px 0 0 0px;
+  margin-top: 16px;
+  margin-right: 40px;
   display: block;
   float: right;
-  width: 10%;
   opacity: 0.8;
   &:hover{
     opacity: 1;
   }
 }
-#nav-btns,#sign-out{
+#nav-btns{
   text-decoration: none;
   color: white;
+
 }
 #add-btn{
   z-index: 1;
 }
 #glyphicons{
   text-decoration: none;
+}
+#text-field{
+  resize: none;
+  height: 400px !important;
+}
+.form-control{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 50% !important;
+}
+.article-form{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  text-align:center !important;
 }

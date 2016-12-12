@@ -7,11 +7,12 @@
 
 </div>
 <br><br><br>
-<div class="mdl-textfield mdl-js-textfield" id="search-div">
-  <form action="/" accept-charset="UTF-8" method="get" >
+<form action="/" accept-charset="UTF-8" method="get" >
+  <div class="mdl-textfield mdl-js-textfield" id="search-div">
   <input type="text" name="search" id="search-field" class="mdl-textfield__input">
   <label class="mdl-textfield__label" for="search-field" >Username...</label>
-</div>
+  </div>
+</form>
 
 <br>
 <% @users.each do |user| %>

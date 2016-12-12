@@ -5,6 +5,7 @@
 <br><br>
 <% @user.articles.each do |article| %>
   <div class="demo-card-wide mdl-card mdl-shadow--2dp" id="article-card">
+  <div id="margin-div-card">
     <div class="mdl-card__title">
       <h2 class="mdl-card__title-text"><%=  article.title %></h2>
     </div>
@@ -77,6 +78,8 @@
         // })
       </script>
         </div>
+  </div>
+  </div>
   </div>
    <br><br>
     <% end %>

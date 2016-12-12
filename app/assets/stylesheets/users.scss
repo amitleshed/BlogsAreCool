@@ -3,6 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #card-text{
 }
+#article-card{
+  z-index: 0 !important;
+  display: block !important;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50% !important; 
+}
+#margin-div-card{
+  margin-left: 9%;
+}
 #text{
     text-align: justify;  
     -moz-text-align-last: right; /* Code for Firefox */
