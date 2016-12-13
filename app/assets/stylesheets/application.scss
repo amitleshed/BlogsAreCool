@@ -22,18 +22,18 @@
  @import 'bootstrap/glyphicons';
  @import "font-awesome";
  @import "animate";
-
+$break-small: 320px;
+$break-large: 1200px;
 
  body{
   font-family: 'Ubuntu', sans-serif !important;
   margin-top: 5em;
+    @media screen and (max-width: $break-small) {
+    background-color: #FFF;
+  }
  }
- .demo-layout-waterfall .mdl-layout__header-row .mdl-navigation__link:last-of-type  {
-  padding-right: 0;
-}
 
 #title{
-  visibility: hidden !important;
   position: absolute;
   display: inline-block;
   height: 4em;
@@ -63,7 +63,7 @@ p{
 ul{
   top: 0;
   margin: 0;
-  background-color: #455A64 !important; 
+  background-color: #212121 !important; 
   height: 60px;
   position: fixed;
   width: 100%;
