@@ -47,13 +47,10 @@ end
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 
   gem 'spring'
-  gem 'material_design_lite-sass', '~> 1.2', '>= 1.2.1'
-  gem 'bootstrap-glyphicons', '~> 0.0.1'
-  gem 'bootstrap-social-rails'
-  gem 'bootstrap-sass', '~> 3.3.6'
   gem 'paperclip', '~> 5.1'
   gem 'image_magick', '~> 0.1.9'
   gem 'imagemagick-identify', '~> 0.0.1'
   gem 'font-awesome-rails', '~> 4.7'
   gem 'animate-rails', '~> 1.0', '>= 1.0.10'
+  gem 'materialize-sass', '~> 0.97.8'
 

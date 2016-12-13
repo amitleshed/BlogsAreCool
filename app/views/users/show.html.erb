@@ -3,19 +3,20 @@
 <h1 id="list-title"><%=@user.username%>'s Blog</h1>
 
 <br><br>
+
+
+          
+            
+
 <% @user.articles.each do |article| %>
-  <div class="demo-card-wide mdl-card mdl-shadow--2dp" id="article-card">
-  <div id="margin-div-card">
-    <div class="mdl-card__title">
-      <h2 class="mdl-card__title-text"><%=  article.title %></h2>
-    </div>
-    <div class="mdl-card__supporting-text" id="card-text">
-      <p id="text"><%=  article.description %></p>
-      
-<p id="border"/>
-<br>
+    <div class="card" style="width: 50%; margin-right: auto; margin-left: auto">
+        <div class="card-content">
+          <h2 class="header"><%=  article.title %></h2>
+          <p><%=  article.description %></p>
+        </div>
+        <p id="border"/>
 <!-- Comments icon -->
-<i class="fa fa-comments fa-3x" aria-hidden="true" style="opacity:0.3;"></i>
+<i class="fa fa-comments fa-3x" aria-hidden="true" style="opacity:0.3; margin-right: auto; margin-left: auto;"></i>
       <!-- Comments -->
       <div id="comments">
               <% article.comments.each do |comment| %>
@@ -44,14 +45,12 @@
       </div>
 
 <% if user_signed_in? %> <!-- Comment form -->
+  <div style="margin-left: auto; margin-right: auto; width:50%;">
       <%= form_for [article, @comment] do |f| %> 
       <br>
-          <p>
-          <br>
-             <%= f.label :comment %><br>
-             <%= f.text_field :description, id: "comment-field" %>
-          </p>        
+             <%= f.text_field :description%>   
       <% end %>
+     </div>
 <% end %>
 
 <% if article.comments.count == 0 %> <!-- If there are no comments - show message -->

@@ -10,18 +10,12 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require animate
- *= require font-awesome
- *= require_tree .
- *= require_self
-  *= require bootstrap-social
  */
- @import "bootstrap-sprockets";
- @import "bootstrap";
- @import 'material';
- @import 'bootstrap/glyphicons';
+ @import "materialize";
  @import "font-awesome";
  @import "animate";
+ @import '*';
+
 $break-small: 320px;
 $break-large: 1200px;
 
@@ -103,11 +97,15 @@ ul{
   z-index: 1;
   opacity: 1.0;
 }
+
 #add-btn{
+    z-index: 1;
     position:fixed;
     bottom:10px;
     right:10px;
+    font-size: 40px;
 }
+
 li{
   text-decoration: none;
   margin-top: 16px;
@@ -124,11 +122,7 @@ li{
   color: #fff;
 
 }
-#add-btn{
-  z-index: 1;
-  color: #fff !important;
-  background-color: #d50000 !important;
-}
+
 #glyphicons{
   text-decoration: none;
   color: #d50000 !important;

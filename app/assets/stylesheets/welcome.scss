@@ -21,16 +21,7 @@
   height: 15em;
   background-color: #9e9e9e;
 }
-#search-div{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-#search-btn{
-    display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
+
 .footer{
   width: 100%;
   height: 40px;
@@ -47,16 +38,7 @@
   margin-left: auto;
   opacity: 1;
 }
-.mdl-textfield__input{
-  color: #BDBDBD !important;
-  border-bottom: 1px solid #BDBDBD !important;
-}
-.mdl-textfield__label{
-  color: #BDBDBD !important;
-}
-#search-field:focus{
-  outline: 0;
-}
+
 #img{
   display: block;
   width: 5%;
@@ -70,4 +52,10 @@
   width:24%;
   margin-left: auto;
   margin-right: auto;
+}
+.search-form{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
 }
