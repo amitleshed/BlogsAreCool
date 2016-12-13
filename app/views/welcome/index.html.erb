@@ -17,7 +17,7 @@
 <br>
 <% @users.each do |user| %>
 <br><br>
-<%= image_tag(user.image, id: "img-small") %><br>
+<%= image_tag(user.image, id: "img") %><br>
   <p><%= link_to user.username, profiles_path(user.id), id:"user-link" %></p>
   <p style="opacity:0.3;"><%= user.articles.count%> Articles </p>
   <br><br>

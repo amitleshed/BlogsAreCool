@@ -25,6 +25,41 @@
 $break-small: 320px;
 $break-large: 1200px;
 
+@media only screen and (max-width: 1000px) {
+  #second-title{
+  width: 50% !important;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  }
+
+  #img{
+  display: block;
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+#img-big{
+  display: block;
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+#article-card{
+  z-index: 0 !important;
+  display: block !important;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90% !important; 
+}
+}
+
  body{
   font-family: 'Ubuntu', sans-serif !important;
   margin-top: 5em;
