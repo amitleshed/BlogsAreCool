@@ -14,6 +14,7 @@
 //= require bootstrap-sprockets
 //= require material
 //= require jquery_ujs
+//= require chat
 //= require turbolinks
 //= require_tree .
 
