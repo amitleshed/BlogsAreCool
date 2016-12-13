@@ -41,6 +41,7 @@ outline: 0;
 }
 #comment-user-link{
   text-decoration: none;
+  color: #d50000 !important;
 }
 #comment-created-at{
   margin-top: -24px;
@@ -60,6 +61,7 @@ outline: 0;
   float: right;
   text-decoration: none;
    opacity: 0.6;
+  color: #d50000 !important;
   &:hover{
     opacity: 0.9;
   }
