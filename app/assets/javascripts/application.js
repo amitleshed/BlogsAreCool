@@ -17,3 +17,12 @@
 //= require_tree .
 
 
+// SID
+  <script type="text/javascript">
+    $(".button-collapse").sideNav({
+       edge: 'right'
+      }
+    );
+  </script>
+
+

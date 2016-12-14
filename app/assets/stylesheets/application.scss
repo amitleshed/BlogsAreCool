@@ -16,43 +16,43 @@
  @import "animate";
  @import '*';
 
-$break-small: 320px;
-$break-large: 1200px;
+/*$green: #4db6ac;
+$red: #d50000;*/
 
-@media only screen and (max-width: 1000px) {
-  #second-title{
-  width: 50% !important;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  }
+        @media only screen and (max-width: 1000px) {
+            #second-title{
+            width: 50% !important;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            }
 
-  #img{
-  display: block;
-  width: 20%;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 20%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
+            #img{
+            display: block;
+            width: 20%;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 20%;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+          }
 
-#img-big{
-  display: block;
-  width: 20%;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 20%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
+          #img-big{
+            display: block;
+            width: 20%;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 20%;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+          }
 
-#article-card{
-  z-index: 0 !important;
-  display: block !important;
-  margin-left: auto;
-  margin-right: auto;
-  width: 90% !important; 
-}
-}
+          #article-card{
+            z-index: 0 !important;
+            display: block !important;
+            margin-left: auto;
+            margin-right: auto;
+            width: 90% !important; 
+          }
+        }
 
  body{
   font-family: 'Ubuntu', sans-serif !important;
@@ -63,8 +63,9 @@ $break-large: 1200px;
 #title{
   position: absolute;
   display: inline-block;
-  height: 4em;
-  width: 4em;
+  height: 3.7em;
+  width: 3.7em;
+  margin-left: 25px;
 }
  h2{
   text-align: center;
@@ -84,7 +85,8 @@ p{
 }
 #form-label{
     font-family: 'Ubuntu', sans-serif !important;
-  font-weight: 100;
+    font-weight: 100;
+    text-align: center;
 }
 
 ul{
@@ -99,11 +101,13 @@ ul{
 }
 
 #add-btn{
+    color: #4db6ac;
     z-index: 1;
     position:fixed;
     bottom:10px;
     right:10px;
     font-size: 40px;
+    width: 1em;
 }
 
 li{
@@ -120,18 +124,24 @@ li{
 #nav-btns{
   text-decoration: none;
   color: #fff;
-
+}
+#user-btn{
+  color: #fff;
+  font-size: 30px;
 }
 
 #glyphicons{
   text-decoration: none;
-  color: #d50000 !important;
+  color: #4db6ac !important;
 }
 #text-field{
   resize: none;
-  height: 400px !important;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 50% !important;
 }
-.form-control{
+#title-field{
   display: block;
   margin-right: auto;
   margin-left: auto;
@@ -143,4 +153,14 @@ li{
   margin-left: auto;
   text-align:center !important;
 }
-
+.devise-field{
+  width: 100%;
+}
+#img-sidenav{
+  display: block;
+  width: 170%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}

@@ -1,11 +1,12 @@
+<h1 style="font-size: 40px;">Write an Article</h1>
 <% @article = Article.new %>
 <%= form_for @article do |f| %>
 <div class="article-form"
     <p id="form-label"><%= f.label :title %></p>
-    <%= f.text_field :title, :class => 'form-control' %><br>
-    <p id="form-label"><%= f.label :description%></p>
-      <%= f.text_area :description, :class => 'form-control', :id => "text-field"%>
+    <%= f.text_field :title, :id => "title-field"%><br>
+    <p id="form-label"><%= f.label :article%></p>
+      <%= f.text_area :description, :id => "text-field", :class => "materialize-textarea"%>
     </p>
-      <%=f.submit "Create", :class => 'mdl-button mdl-js-button mdl-js-ripple-effect' %>
+      <%=f.submit "Create", :class => " modal-action modal-close waves-effect waves-green btn-flat" %>
   </div>
 <% end %>

@@ -16,23 +16,24 @@
       <span>
         <%= link_to image_tag("BlogsAreCoolLogo.png", id:"title",class:"animated fadeInLeft"), root_path %>
       </span>
-      <% if user_signed_in? %>
       <span class="animated fadeIn">
+
+      <!-- Side Navbar -->
+      <script type="text/javascript">
+      $(".button-collapse").sideNav({
+      edge: 'right',
+      menuWidth: 165
+      }
+      );
+      </script>
+
+    <% if user_signed_in? %>
       <li>
-          <%= link_to 'Sign Out', destroy_user_session_path,id: "nav-btns", :method => :delete %>
-      </li>
-      <li>
-        <%= link_to 'Settings', edit_user_registration_path,id: "nav-btns" %>
-      </li>
-      <li>
-        <%= link_to current_user.username, profiles_path(current_user),id: "nav-btns" %>
+         <a href="" data-activates="slide-out" class="button-collapse"><i class="fa fa-bars" style="color: #fff; font-size: 30px;"></i></a>
       </li>
       <% else %>
       <li>
-          <%= link_to 'Sign up', new_user_registration_path,id: "nav-btns"%>
-      </li>
-      <li>
-          <%= link_to 'Sign in', new_user_session_path,id: "nav-btns"%>
+          <%= link_to '', new_user_session_path,id: "user-btn",class: "fa fa-user"%>
       </li>
       <% end %>
       </span>
@@ -51,7 +52,7 @@
   <!-- Modal Trigger -->
     <% if user_signed_in? %>
       <%= link_to new_article_path, href: "#modal1" do %>
-        <i class="fa fa-plus-circle" aria-hidden="true" id="add-btn" ></i>
+        <i class="fa fa-pencil-square-o" aria-hidden="true" id="add-btn" ></i>
       <% end %>
     <% end %>
 
@@ -60,10 +61,25 @@
     <div class="modal-content">
       <%= render './articles/article_form' %>
     </div>
-    <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
   </div>
+
+  <!-- Side Navbar -->
+
+<%  if user_signed_in? %>
+  <ul id="slide-out" class="side-nav">
+    <li><div class="userView">
+      <div class="background">
+      </div>
+      <%= image_tag(current_user.image, id: "img-sidenav") %><br>
+      <a href="#!name"><span class="white-text name"><%=current_user.email%></span></a>
+    </div></li>
+    <li><%= link_to current_user.username, profiles_path(current_user),id: "nav-btns" %></li>
+    <li><%= link_to 'Settings', edit_user_registration_path,id: "nav-btns" %></li>
+    <li><%= link_to 'Sign Out', destroy_user_session_path,id: "nav-btns", :method => :delete %></li>
+  </ul>
+<% end %>
+        
+
          
 
 <%= yield %>

@@ -9,9 +9,12 @@
 <br><br><br>
 
 <div class="search-form">
+<div class="input-field col s6">
 <form action="/" accept-charset="UTF-8" method="get" >
   <input type="text" name="search">
+  <label for="icon_prefix">Username...</label>
 </form>
+</div>
 </div>
 
 <br>
@@ -21,7 +24,7 @@
   <p><%= link_to user.username, profiles_path(user.id), id:"user-link" %></p>
   <p style="opacity:0.3;"><%= user.articles.count%> Articles </p>
   <br><br>
-  <p id="border-small"></p>
+  <p id="border-small" style="width:32%;"></p>
 <% end %>
 <div class="footer">
   <%= link_to image_tag("github-logo.png", id:"github", class:"animated jello"), "http://www.github.com/amitleshed" %>
