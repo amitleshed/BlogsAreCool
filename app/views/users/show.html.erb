@@ -1,6 +1,26 @@
 <br><br>
 <%= image_tag(@user.image, id: "img-big") %>
-<h1 id="list-title"><%=@user.username%>'s Blog</h1>
+<h1 id="list-title"><%=@user.username%></h1>
+<br>
+
+    <span style="margin-left: 25%; opacity: 0.4;">A little about <%= @user.username%></span>
+      <div class="row" style="width:50%;">
+        <div class="card-panel teal">
+          <span class="white-text">
+            <div style="margin-left: auto; margin-right: auto;">
+              <i class="fa fa-quote-left" style="font-size: 30px; margin-right: 0.5em;" aria-hidden="true"></i>
+              <%= @user.about %>
+              <i class="fa fa-quote-right" style="font-size: 30px; margin-left: 0.5em;" aria-hidden="true"></i>
+            <% if user_signed_in? %>
+              <% if current_user.id == @user.id%>
+              <%= link_to '', edit_registration_path(@user), :class => "fa fa-pencil", :style => "color:#fff; float:right; margin-top:1.3em;"%>
+              <% end %>
+             <% end %>
+            </div>
+          </span>
+        </div>
+      </div>
+
 
 <br><br>
 

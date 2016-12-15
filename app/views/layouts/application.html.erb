@@ -12,7 +12,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-    <ul>
+    <ul class="navbar">
       <span>
         <%= link_to image_tag("BlogsAreCoolLogo.png", id:"title",class:"animated fadeInLeft"), root_path %>
       </span>
@@ -81,6 +81,7 @@
 
 
 <script type="text/javascript">
+
   $(document).ready(function() { 
     // Configure/customize these variables.
     var showChar = 200;  // How many characters are shown by default
@@ -118,6 +119,20 @@
     });
 });
 
+</script>
+
+<!-- SCROLLFIRE -->
+<script type="text/javascript">
+var options = [
+  {
+    selector: '.navbar', 
+    offset: 200, 
+    callback: function() {               // Callback needs to be a function.
+      $('.navbar').addClass("#second-color-div");    // Reference `.wow` not `this`.
+    }
+  }
+];
+Materialize.scrollFire(options);
 </script>
 
 

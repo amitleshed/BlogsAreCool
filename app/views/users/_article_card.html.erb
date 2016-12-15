@@ -1,6 +1,7 @@
 <% @user.articles.each do |article| %>
     <div class="card" id="article-card">
         <div class="card-content">
+        <span style="opacity: 0.2; margin-left: 1.5em; letter-spacing: 1px;"><%= article.created_at.strftime("%d %b %Y") %></span>
         <div style="float: right;">
 
         <% if user_signed_in? %>

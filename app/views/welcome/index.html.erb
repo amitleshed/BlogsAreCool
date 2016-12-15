@@ -21,10 +21,8 @@
 
 <br>
 <% @users.each do |user| %>
-<br><br>
   <p><%= link_to user.username, profiles_path(user.id), id:"user-link" %></p>
   <p style="opacity:0.3;"><%= user.articles.count%> Articles </p>
-  <br><br>
   <p id="border-small" style="width:32%;"></p>
 <% end %>
 

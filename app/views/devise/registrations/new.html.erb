@@ -27,9 +27,14 @@
     <%= f.password_field :password_confirmation, autocomplete: "off",id:"fields" %>
   </div>
 
-      <div class="field">
+  <div class="field">
     <%= f.label :image %><br />
-    <%= f.text_field :image, id:"fields",id:"fields"%>
+    <%= f.text_field :image, id:"fields",value:"http://simpleicon.com/wp-content/uploads/user1.png"%>
+  </div>
+
+ <div class="field">
+    <%= f.label :about %><br />
+    <%= f.text_field :about, id:"fields"%>
   </div>
 
   <div class="actions">
