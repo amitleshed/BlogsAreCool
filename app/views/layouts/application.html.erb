@@ -70,7 +70,7 @@
     <li><div class="userView">
       <div class="background">
       </div>
-      <%= image_tag(current_user.image, id: "img-sidenav") %><br>
+      <%= image_tag(current_user.avatar, id: "img-sidenav") %><br>
       <a href="#!name"><span class="white-text name"><%=current_user.email%></span></a>
     </div></li>
     <li><%= link_to current_user.username, profiles_path(current_user),id: "nav-btns" %></li>

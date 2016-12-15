@@ -53,4 +53,5 @@ end
   gem 'font-awesome-rails', '~> 4.7'
   gem 'animate-rails', '~> 1.0', '>= 1.0.10'
   gem 'materialize-sass', '~> 0.97.8'
+  gem 'paperclip', '~> 5.1'
 
