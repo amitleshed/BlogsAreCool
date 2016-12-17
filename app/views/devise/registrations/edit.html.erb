@@ -20,12 +20,9 @@
   <div class="field">
     <%= f.label :image %><br />
     <%= f.file_field :avatar, :id => "fields" %>
-  </div>
-
-  <div class="field">
-    <%= f.cropbox :avatar %>
-    <%= f.crop_preview :avatar %>
-    <%= f.submit 'Save' %>
+      <%= f.cropbox :avatar %>
+  <%= f.crop_preview :avatar %>
+  <%= f.submit 'Save' %>
   </div>
 
    <div class="field">
