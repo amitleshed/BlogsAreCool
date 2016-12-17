@@ -55,4 +55,5 @@ end
   gem 'materialize-sass', '~> 0.97.8'
   gem 'paperclip', '~> 5.1'
   gem 'aws-sdk', '~> 2.3'
+  gem 'airbrake', '~> 5.6'
 
