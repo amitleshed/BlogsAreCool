@@ -22,6 +22,12 @@
     <%= f.file_field :avatar, :id => "fields" %>
   </div>
 
+  <div class="field">
+    <%= f.cropbox :avatar %>
+    <%= f.crop_preview :avatar %>
+    <%= f.submit 'Save' %>
+  </div>
+
    <div class="field">
     <%= f.label :about %><br />
     <%= f.text_field :about, id:"fields"%>
