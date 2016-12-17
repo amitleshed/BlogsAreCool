@@ -33,6 +33,11 @@
 <% if article.comments.count == 0 %> <!-- If there are no comments - show message -->
   <p style="opacity:0.3;">No comments yet.</p>
 <% end %>
+<br><br>
+<% unless article.comments.empty? %>
+  <button id="show-comments-btn" class="waves-effect waves-light btn"> Show Comments (<%= article.comments.count %>)</button>
+  <button id="hide-comments-btn" class="waves-effect waves-light btn"> Hide Comments </button>
+<% end %>
       <!-- Comments -->
       <div id="comments">
               <% article.comments.each do |comment| %>
@@ -75,9 +80,21 @@
     <div class="mdl-card__menu" id="article-<%= article.id %>">
       
       <script type="text/javascript">
-        // $.get('/profiles/5.json', function(data) {
-        //   console.log(data.article_id);
-        // })
+      //SHOW COMMENT BTN
+          $('#comments').hide();
+          $('#hide-comments-btn').hide();
+          $('#show-comments-btn').on('click', function() {
+             $('#comments').show();
+             $('#hide-comments-btn').show();
+             $(this).hide();
+          })
+          $('#hide-comments-btn').on('click', function() {
+            $('#comments').hide();
+            $('#show-comments-btn').show();
+            $('#hide-comments-btn').hide();
+          });
+
+
       </script>
         </div>
   </div>
