@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//=jquery.scrollfire.min.js
 //= require jquery_ujs
 //= require turbolinks
 //= require materialize-sprockets
