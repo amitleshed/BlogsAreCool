@@ -2,7 +2,7 @@
 <% @users.each do |user| %>
   <% user.articles.last(1).each do |article| %>
 
-  <%= image_tag(user.avatar, id:"img-welcome") %>
+  <%= image_tag user.avatar.url(:small) %>
   <p style="display: inline; margin-left: 1.5em;"><%= link_to user.username, profiles_path(user.id), id:"user-link" %></p>
 
     <div class="card" id="article-card">
