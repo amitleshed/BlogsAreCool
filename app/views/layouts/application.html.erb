@@ -32,17 +32,17 @@
       <li>
          <a href="" data-activates="slide-out" class="button-collapse"><i class="fa fa-bars" style="color: #fff; font-size: 30px;"></i></a>
       </li>
-            <nav class="search-navbar">
-              <div class="nav-wrapper">
-                <form action="/" accept-charset="UTF-8" method="get">
-                  <div class="input-field">
-                    <input name="search" id="search" type="search" required >
-                    <label for="search"><i class="material-icons">search</i></label>
-                    <i class="material-icons">close</i>
-                  </div>
-                </form>
-              </div>
-            </nav>
+      <nav class="search-navbar">
+        <div class="nav-wrapper">
+          <form action="/" accept-charset="UTF-8" method="get">
+            <div class="input-field">
+              <input name="search" id="search" type="search" required >
+              <label for="search"><i class="material-icons">search</i></label>
+              <i class="material-icons">close</i>
+            </div>
+          </form>
+        </div>
+      </nav>
       <% else %>
       <li>
           <%= link_to '', new_user_session_path,id: "user-btn",class: "fa fa-user"%>
@@ -92,8 +92,8 @@
 <% end %>
 
 
-<script type="text/javascript">
-
+<script type="text/javascript">//JS 
+//Show less/more button
   $(document).ready(function() { 
     // Configure/customize these variables.
     var showChar = 200;  // How many characters are shown by default
@@ -130,9 +130,12 @@
         return false;
     });
 });
-
 </script>
-<script type="text/javascript">
+
+<script type="text/javascript">//Scroll manipulations
+
+//Scroll- Search field
+
 $('.search-navbar').hide();
   $(window).scroll(function() {
 
@@ -140,6 +143,19 @@ $('.search-navbar').hide();
         $('.search-navbar').show();
     } else {
          $('.search-navbar').hide();
+    }
+});
+
+//Scroll- navbar
+
+  $(window).scroll(function() {
+
+    if ($(window).scrollTop() > 165) {
+        $('.navbar').css("box-shadow", "0px 1px 5px #888888");
+      } 
+     else
+     {
+         $('.navbar').css("box-shadow", "none");
     }
 });
 </script>
