@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=600", initial-scale=1.0, user-scalable=0 />
+<meta name="viewport" content="width=600" />
   <title>BlogsAreCool</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
@@ -158,15 +158,9 @@ $('.search-navbar').hide();
          $('.navbar').css("box-shadow", "none");
     }
 });
+
 //Prevent page to scroll when focusing an input
 
-    input.onfocus = function () {
-        window.scrollTo(0, 0);
-        document.body.scrollTop = 0;
-        document.ontouchmove = function(e){
-             e.preventDefault();
-            }
-    }
 </script>
 
 
