@@ -159,6 +159,12 @@ $('.search-navbar').hide();
     }
 });
 //Prevent page to scroll when focusing an input
+     $(document).ready(function() {
+         document.ontouchmove = function(e){
+              e.preventDefault();
+              }
+     });
+
     input.onfocus = function () {
         window.scrollTo(0, 0);
         document.body.scrollTop = 0;
