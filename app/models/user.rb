@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   def self.search(parameter) 
-  where("users.username LIKE ?", "%#{parameter}%")
+  where("lower(users.username) LIKE ?", "%#{parameter.downcase}%")
   end
 
    def vote(article_id)
