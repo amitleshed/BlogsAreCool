@@ -1,5 +1,7 @@
 <br><br>
-<%= image_tag @user.avatar.url(:small), id: "img-big" %>
+<% if @user.avatar.present? %>
+  <%= image_tag @user.avatar.url(:small), id: "img-big" %>
+<% end %>
 <h1 id="list-title"><%=@user.username%></h1>
 <br>
 

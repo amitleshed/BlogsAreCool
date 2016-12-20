@@ -1,9 +1,13 @@
 <br><br><br><br>
 <% @users.each do |user| %>
   <% user.articles.last(1).each do |article| %>
-
-  <%= image_tag(user.avatar, id:"img-welcome") %>
-  <p style="display: inline; margin-left: 1.5em;"><%= link_to user.username, profiles_path(user.id), id:"user-link" %></p>
+<% if user.avatar.present? %>
+  <%= image_tag user.avatar.url(:small), id: "img-welcome" %>
+  <p style="display: inline; margin-left: 1em;"><%= link_to user.username, profiles_path(user.id), id:"user-link" %></p>
+<% else %>
+  <p style="display: inline; margin-left: 21.5em;"><%= link_to user.username, profiles_path(user.id), id:"user-link" %></p>
+<% end %>
+ 
 
     <div class="card" id="article-card">
         <div class="card-content">
