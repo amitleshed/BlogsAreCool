@@ -13,44 +13,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-    <ul class="navbar">
-      <span>
-        <%= link_to image_tag("BlogsAreCoolLogo.png", id:"title",class:"animated fadeInLeft"), root_path %>
-      </span>
-      <span class="animated fadeIn">
-
-      <!-- Side Navbar -->
-      <script type="text/javascript">
-      $(".button-collapse").sideNav({
-      edge: 'right',
-      menuWidth: 165
-      }
-      );
-      </script>
-
-    <% if user_signed_in? %>
-      <li>
-         <a href='' data-activates="slide-out" class="button-collapse"><i class="fa fa-bars" style="color: #fff; font-size: 30px;"></i></a>
-      </li>
-      <nav class="search-navbar">
-        <div class="nav-wrapper">
-          <form action="/" accept-charset="UTF-8" method="get">
-            <div class="input-field">
-              <input name="search" id="search" type="search" required  style="font-size: 30px; ">
-              <label for="search"><i class="material-icons">search</i></label>
-              <i class="material-icons">close</i>
-            </div>
-          </form>
-        </div>
-      </nav>
-      <% else %>
-      <li>
-          <%= link_to '', new_user_session_path,id: "user-btn",class: "fa fa-user"%>
-      </li>
-      <% end %>
-      </span>
-    </ul>
-
+  <%= render 'layouts/navbar' %>
 <body>
   
   <!-- Modal jQuery -->

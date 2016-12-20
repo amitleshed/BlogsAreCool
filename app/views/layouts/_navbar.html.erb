@@ -1,0 +1,28 @@
+<ul class="navbar">
+      <span>
+        <%= link_to image_tag("BlogsAreCoolLogo.png", id:"title",class:"animated fadeInLeft"), root_path %>
+      </span>
+      <span class="animated fadeIn">
+
+      <!-- Side Navbar -->
+      <script type="text/javascript">
+      $(".button-collapse").sideNav({
+      edge: 'right',
+      menuWidth: 165
+      }
+      );
+      </script>
+
+    <% if user_signed_in? %>
+      <li>
+         <a href='' data-activates="slide-out" class="button-collapse"><i class="fa fa-bars" style="color: #fff; font-size: 30px;"></i></a>
+      </li>
+      <%= render 'layouts/search_field' %>
+      <% else %>
+      <li>
+          <%= link_to '', new_user_session_path,id: "user-btn",class: "fa fa-user"%>
+      </li>
+      <%= render 'layouts/search_field' %>
+      <% end %>
+      </span>
+    </ul>
