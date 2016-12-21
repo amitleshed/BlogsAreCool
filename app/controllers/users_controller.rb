@@ -5,6 +5,11 @@ class UsersController < ApplicationController
     @comment = Comment.new
   end
 
+  def hashtags
+    tag = Tag.find_by(name: params[:name])
+    @users = tag.users
+  end
+
   def vote
    @article = Article.find(params[:article_id])
     if current_user.voted?(@article.id)

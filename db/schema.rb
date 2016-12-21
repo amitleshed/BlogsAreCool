@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161215183930) do
+ActiveRecord::Schema.define(version: 20161221105938) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -29,26 +29,19 @@ ActiveRecord::Schema.define(version: 20161215183930) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "conversations", force: :cascade do |t|
-    t.integer  "sender_id"
-    t.integer  "recipient_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "conversations", ["recipient_id"], name: "index_conversations_on_recipient_id"
-  add_index "conversations", ["sender_id"], name: "index_conversations_on_sender_id"
-
-  create_table "messages", force: :cascade do |t|
-    t.text     "body"
-    t.integer  "conversation_id"
-    t.integer  "user_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+  create_table "tags_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "tag_id"
   end
 
-  add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id"
-  add_index "messages", ["user_id"], name: "index_messages_on_user_id"
+  add_index "tags_users", ["tag_id"], name: "index_tags_users_on_tag_id"
+  add_index "tags_users", ["user_id"], name: "index_tags_users_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -74,6 +67,14 @@ ActiveRecord::Schema.define(version: 20161215183930) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "users_tags", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "tag_id"
+  end
+
+  add_index "users_tags", ["tag_id"], name: "index_users_tags_on_tag_id"
+  add_index "users_tags", ["user_id"], name: "index_users_tags_on_user_id"
 
   create_table "votes", force: :cascade do |t|
     t.integer  "user_id"
