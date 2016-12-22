@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar, styles: { medium: "300x300#", small: "100x100#" }
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+  validates :username, uniqueness: true
 
   after_create do
    user = User.find_by(id: self.id)
@@ -31,7 +32,7 @@ class User < ActiveRecord::Base
   end
 
   def self.search(parameter) 
-  where("lower(users.username) LIKE ?", "%#{parameter.downcase}%")
+  where("lower(tag.name) LIKE ?", "%#{parameter.downcase}%")
   end
 
    def vote(article_id)

@@ -1,5 +1,16 @@
+<h1>#<%= @tag.name %></h1>
+<br>
 <% @users.each do |user| %>
-  <p><%= user.username %></p>
-  <p style="opacity:0.3;"><%= user.articles.count%> Articles </p>
-  <p id="border-small" style="width:32%;"></p>
+<div class="card" id="hashtag-page-card">
+  <div class="card-content" style="margin-left: auto;margin-right: auto;">
+   <%= link_to profiles_path(user) do%>
+   <%= image_tag user.avatar.url(:small), :id => "img-hashtag-page" %>
+  <% end %>
+  <div style="margin-left: auto; margin-right: auto; text-align: center;">
+    <p style="display: inline;"><%= link_to user.username, profiles_path(user), :id => "hashtag-page-user-links" %></p>
+    <p style="opacity:0.3; display: inline;"><%= user.articles.count%> Articles </p><br>
+    <p style="opacity:0.3; display: inline;"><%= user.about%></p>
+  </div>
+  </div>
+</div>
 <% end %>

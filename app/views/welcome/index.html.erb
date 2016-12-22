@@ -1,7 +1,9 @@
 <div id="second-color-div">
 <br><br><br>
 <br><br>
-  <%= image_tag("blogsarecool.png", id:"second-title",class:"animated fadeInUp")%>
+<div style="text-align: center;" class="animated fadeInUp">
+<span id="slogan" >A feed tailored for </span><span id="slogan" style="color:#4db6ac;text-shadow: 0px 0px 2px #424242;">you</span>
+</div>
   <br>
 </form>
 
@@ -23,13 +25,6 @@
 <%= render 'article_card_welcome' %>
 
 <br>
-<% @users.each do |user| %>
-  <p><%= link_to user.username, profiles_path(user.id), id:"user-link" %></p>
-  <p style="opacity:0.3;"><%= user.articles.count%> Articles </p>
-  <p id="border-small" style="width:32%;"></p>
-  <%= redner_with_hashtags(user.about.downcase)%>
-<% end %>
-
 
 <div class="footer">
 <div style="text-align: center;">

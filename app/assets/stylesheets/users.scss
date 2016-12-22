@@ -77,3 +77,24 @@ outline: 0;
   opacity: 0.4;
   width: 50%;
 }
+#img-hashtag-page{
+  display:block;
+  border-radius: 50%;
+  width: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#hashtag-page-user-links{
+  font-family: 'lobster';
+  font-size: 20px;
+  color: #4db6ac;
+}
+#hashtags-user{
+  text-decoration: none !important;
+  color: #fff !important;
+  font-size: 35px;
+}
+#hashtag-page-card{
+  width: 33.1%;
+  display: inline-block;
+}

@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def hashtags
     tag = Tag.find_by(name: params[:name])
+    @tag = tag
     @users = tag.users
   end
 

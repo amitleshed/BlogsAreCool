@@ -7,6 +7,12 @@
   <%= devise_error_messages! %>
 
   <div id="forms">
+
+   <div class="field">
+    <%= f.label "Describe yourself via tags!"%><br />
+    <%= f.text_field :about, placeholder: "ex: #sports #rocknroll #food", id:"fields"%>
+  </div>
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, id:"fields" %>
@@ -20,11 +26,6 @@
   <div class="field">
     <%= f.label :image %><br />
     <%= f.file_field :avatar, :id => "fields" %>
-  </div>
-
-   <div class="field">
-    <%= f.label :about %><br />
-    <%= f.text_field :about, id:"fields"%>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

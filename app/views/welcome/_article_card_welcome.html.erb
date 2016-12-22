@@ -4,8 +4,16 @@
 <% if user.avatar.present? %>
   <%= image_tag user.avatar.url(:small), id: "img-welcome" %>
   <p style="display: inline; margin-left: 1%"><%= link_to user.username, profiles_path(user.id), id:"user-link" %></p>
+  <br>
+  <!-- HASHTAGS -->
+  <span class="chip" id="hashtag"><%= redner_with_hashtags_welcome(user.about.downcase)%></span>
+  <!-- HASHTAGS -->
 <% else %>
   <p style="display: inline; margin-left: 25%"><%= link_to user.username, profiles_path(user.id), id:"user-link-no-img" %></p>
+  <br>
+    <!-- HASHTAGS -->
+  <span class="chip" id="hashtag"><%= redner_with_hashtags_welcome(user.about.downcase)%></span>
+  <!-- HASHTAGS -->
 <% end %>
  
 
