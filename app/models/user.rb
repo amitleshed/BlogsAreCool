@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
   end
 
   def self.search(parameter) 
-  where("lower(tag.name) LIKE ?", "%#{parameter.downcase}%")
+  where("lower(username) LIKE ?", "%#{parameter.downcase}%")
   end
 
    def vote(article_id)
