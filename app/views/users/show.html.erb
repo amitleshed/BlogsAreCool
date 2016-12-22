@@ -10,9 +10,11 @@
         <div class="card-panel teal lighten-2">
           <span class="white-text">
             <div style="margin-left: auto; margin-right: auto;">
+            <% if user.about != 0%>
               <!-- HASHTAGS -->
               <span><%= redner_with_hashtags_user(@user.about.downcase!) %></span>
               <!-- HASHTAGS -->
+              <% end %>
             <% if user_signed_in? %>
               <% if current_user.id == @user.id%>
               <%= link_to '', edit_registration_path(@user), :class => "fa fa-pencil", :style => "color:#fff; float:right; margin-top:1.3em;"%>
