@@ -11,7 +11,7 @@
           <span class="white-text">
             <div style="margin-left: auto; margin-right: auto;">
               <!-- HASHTAGS -->
-              <span><%= redner_with_hashtags_user(@user.about.downcase) %></span>
+              <span><%= redner_with_hashtags_user(@user.about.downcase!) %></span>
               <!-- HASHTAGS -->
             <% if user_signed_in? %>
               <% if current_user.id == @user.id%>
