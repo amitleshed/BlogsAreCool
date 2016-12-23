@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 20161223150548) do
     t.datetime "updated_at",   null: false
   end
 
+  add_index "relationships", ["followed_id", "following_id"], name: "index_relationships_on_followed_id_and_following_id", unique: true
   add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
   add_index "relationships", ["following_id"], name: "index_relationships_on_following_id"
-  add_index "relationships", [nil, "following_id"], name: "index_relationships_on_followed_and_following_id", unique: true
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"
