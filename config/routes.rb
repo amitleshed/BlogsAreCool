@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   post 'users/comment', to: 'users#comment'
 
+  post 'users/follow', to: 'users#follow'
+
+  delete 'users/unfollow', to: 'users#unfollow'
+
   delete 'comments/destroy', to: 'comments#destroy'
 
   resources :articles do

@@ -3,6 +3,11 @@
   <%= image_tag @user.avatar.url(:small), id: "img-big" %>
 <% end %>
 <h1 id="list-title"><%=@user.username%></h1>
+<% if current_user.following?(@user.id)%>
+  <%= link_to 'Unfollow', users_unfollow_path(follow_id: @user.id), :class => "waves-effect waves-light btn teal lighten-2", method: :delete%>
+<% else %>
+  <%= link_to 'Follow', users_follow_path(follow_id: @user.id), :class => "waves-effect waves-light btn-flat", method: :post%>
+<% end %>
 <br>
 
     <span style="margin-left: 25%; opacity: 0.4;">A little about <%= @user.username%></span>

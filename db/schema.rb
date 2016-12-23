@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161221105938) do
+ActiveRecord::Schema.define(version: 20161223150548) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -28,6 +28,18 @@ ActiveRecord::Schema.define(version: 20161221105938) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "followed_id"
+    t.integer  "following_id"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
+  add_index "relationships", ["following_id"], name: "index_relationships_on_following_id"
+  add_index "relationships", [nil, "following_id"], name: "index_relationships_on_followed_and_following_id", unique: true
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"

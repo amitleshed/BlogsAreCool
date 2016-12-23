@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   has_many :articles, dependent: :destroy
   has_many :votes
   has_many :comments, dependent: :destroy
+  has_many :relationships
+  has_many :follows, class_name: 'User', through: :relationships, foreign_key: :followed_id
+  has_many :followings, class_name: 'User', through: :relationships, foreign_key: :following_id
   has_and_belongs_to_many :tags
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -47,8 +50,27 @@ def voted?(article_id)
   return true
 end
 
-   def comment(article_id)
-    comment = self.comments.create(article_id: article_id)
-    comment.save
+def comment(article_id)
+  comment = self.comments.create(article_id: article_id)
+  comment.save
+end
+
+def follow(follow_id)
+  self.relationships.create(followed_id: follow_id, following_id: self.id)
+end
+
+def unfollow(follow_id)
+  relationship = self.relationships.where('followed_id = ? AND following_id = ?', follow_id, self.id).first
+  relationship.destroy
+  relationship.save
+end
+
+def following?(follow_id)
+  if self.relationships.where(followed_id: follow_id).empty?
+    return false
+  else
+    return true
   end
+end
+
 end
