@@ -2,7 +2,11 @@
 <br><br><br>
 <br><br>
 <div style="text-align: center;" class="animated fadeInUp">
-<span id="slogan" style="color:#fff;">A feed tailored for </span><span id="slogan" style="color:#fff;">you</span>
+<% if user_signed_in? %>
+<span id="slogan" style="color:#fff;">Check your tags, Meet your people.</span>
+<% else%>
+<span id="slogan" style="color:#fff;">You love blogs, sign up.</span>
+<% end %>
 </div>
   <br>
 </form>
