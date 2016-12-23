@@ -43,8 +43,6 @@
 <%  if user_signed_in? %>
   <ul id="slide-out" class="side-nav">
     <li><div class="userView">
-      <div class="background">
-      </div>
       <%=image_tag current_user.avatar.url(:medium), id: "img-sidenav" %><br>
     </div></li>
     <li><%= link_to current_user.username, profiles_path(current_user),id: "nav-btns" %></li>
