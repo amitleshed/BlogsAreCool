@@ -26,8 +26,8 @@
 
   <!-- Modal Trigger -->
     <% if user_signed_in? %>
-      <%= link_to new_article_path, href: "#modal1" do %>
-        <i class="fa fa-pencil-square-o" aria-hidden="true" id="add-btn" ></i>
+      <%= link_to new_article_path, :class => "btn-floating btn-large waves-effect waves-light red", :id => "add-btn", href: "#modal1" do %>
+        <i class="material-icons" aria-hidden="true">add</i>
       <% end %>
     <% end %>
 
