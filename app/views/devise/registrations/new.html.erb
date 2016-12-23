@@ -15,6 +15,11 @@
   </div>
 
   <div class="field">
+    <%= f.label "Describe yourself via tags!"%><br />
+    <%= f.text_field :about, placeholder: "ex: #sports #rocknroll #food", id:"fields"%>
+  </div>
+
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -30,11 +35,6 @@
   <div class="field">
     <%= f.label :image %><br />
     <%= f.file_field :avatar, :id => "fields" %>
-  </div>
-
- <div class="field">
-    <%= f.label :about %><br />
-    <%= f.text_field :about, id:"fields"%>
   </div>
 
   <div class="actions">
