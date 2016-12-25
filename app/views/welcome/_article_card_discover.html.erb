@@ -1,6 +1,5 @@
 <br><br><br><br>
-<% if user_signed_in? %>
-<% current_user.follows.each do |user| %>
+<% @users.each do |user| %>
   <% user.articles.last(1).each do |article| %>
 <% if user.avatar.present? %>
   <%= image_tag user.avatar.url(:small), id: "img-welcome" %>
@@ -131,5 +130,4 @@
   </div>
    <br><br>
     <% end %>
-  <% end %>
   <% end %>

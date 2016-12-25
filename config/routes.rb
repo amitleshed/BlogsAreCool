@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   root to: 'welcome#index'
 
+  get '/discover', to: 'welcome#discover'
+
   get '/profiles/hashtag/:name', to: 'users#hashtags'
 
   # The priority is based upon order of creation: first created -> highest priority.

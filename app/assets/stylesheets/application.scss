@@ -60,10 +60,10 @@ $red: #d50000;*/
             display: block !important;
             margin-left: auto;
             margin-right: auto;
-            width: 90% !important; 
+            width: 100% !important; 
           }
           .search-form{
-            width: 90%;
+            width: 100%;
           }
           .search-navbar{
             visibility: hidden;
@@ -216,6 +216,8 @@ li{
   height: 60px;
   box-shadow: none;
   border-bottom: 1px solid #757575;
+  animation-duration: 0.2s;
+  animation-delay: 0s;
 }
 #hashtag{
   text-decoration: none;

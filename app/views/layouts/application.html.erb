@@ -100,9 +100,12 @@ $('.search-navbar').hide();
   $(window).scroll(function() {
 
     if ($(window).scrollTop() > 300) {
+        $('.search-navbar').removeClass("animated fadeOut");
         $('.search-navbar').show();
+        $('.search-navbar').addClass("animated fadeIn");
     } else {
-         $('.search-navbar').hide();
+      $('.search-navbar').removeClass("animated fadeIn");
+      $('.search-navbar').addClass("animated fadeOut");
     }
 });
 
