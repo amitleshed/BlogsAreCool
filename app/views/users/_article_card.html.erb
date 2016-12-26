@@ -35,11 +35,11 @@
 <% end %>
 <br><br>
 <% unless article.comments.empty? %>
-  <button id="show-comments-btn" class="waves-effect waves-light btn"> Show Comments (<%= article.comments.count %>)</button>
-  <button id="hide-comments-btn" class="waves-effect waves-light btn"> Hide Comments </button>
+  <button id="show-comments-btn-<%= article.id %>" class="waves-effect waves-light btn"> Show Comments (<%= article.comments.count %>)</button>
+  <button id="hide-comments-btn-<%= article.id %>" class="waves-effect waves-light btn"> Hide Comments </button>
 <% end %>
       <!-- Comments -->
-      <div id="comments">
+      <div id="comments-<%= article.id %>">
               <% article.comments.each do |comment| %>
 
               <p id="comment-username">
@@ -81,17 +81,17 @@
       
       <script type="text/javascript">
       //SHOW COMMENT BTN
-          $('#comments').hide();
-          $('#hide-comments-btn').hide();
-          $('#show-comments-btn').on('click', function() {
-             $('#comments').show();
-             $('#hide-comments-btn').show();
+          $('#comments-<%= article.id %>').hide();
+          $('#hide-comments-btn-<%= article.id %>').hide();
+          $('#show-comments-btn-<%= article.id %>').on('click', function() {
+             $('#comments-<%= article.id %>').show();
+             $('#hide-comments-btn-<%= article.id %>').show();
              $(this).hide();
           })
-          $('#hide-comments-btn').on('click', function() {
-            $('#comments').hide();
-            $('#show-comments-btn').show();
-            $('#hide-comments-btn').hide();
+          $('#hide-comments-btn-<%= article.id %>').on('click', function() {
+            $('#comments-<%= article.id %>').hide();
+            $('#show-comments-btn-<%= article.id %>').show();
+            $('#hide-comments-btn-<%= article.id %>').hide();
           });
 
 
