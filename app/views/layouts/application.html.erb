@@ -21,6 +21,7 @@
     $(document).ready(function(){
     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
     $('.modal').modal()
+    $('.window').css("overflow-y", "hidden");
   });
 </script>
 
@@ -51,9 +52,9 @@
     <li><div class="userView">
       <%=image_tag current_user.avatar.url(:medium), id: "img-sidenav" %><br>
     </div></li>
-    <li><%= link_to current_user.username, profiles_path(current_user),id: "nav-btns" %></li>
-    <li><%= link_to 'Settings', edit_user_registration_path,id: "nav-btns" %></li>
-    <li><%= link_to 'Sign Out', destroy_user_session_path,id: "nav-btns", :method => :delete %></li>
+    <li style="width:100%"><%= link_to current_user.username, profiles_path(current_user),id: "nav-btns" %></li>
+    <li style="width:100%"><%= link_to 'Settings', edit_user_registration_path,id: "nav-btns" %></li>
+    <li style="width:100%"><%= link_to 'Sign Out', destroy_user_session_path,id: "nav-btns", :method => :delete %></li>
   </ul>
 <% end %>
 
