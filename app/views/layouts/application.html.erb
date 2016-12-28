@@ -43,7 +43,7 @@
 
 <%  if user_signed_in? %>
   <ul id="slide-out" class="side-nav">
-    <% if current_user.avatar == nil %>
+    <% if current_user.avatar.present?%>
     <li><div class="userView">
       <%=image_tag current_user.avatar.url(:medium), id: "img-sidenav" %><br>
     </div></li>
