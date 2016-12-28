@@ -5,6 +5,9 @@
   <%= image_tag @user.avatar.url(:small), id: "img-big" %>
 <% end %>
 <br>
+<span style="font-weight: bold; color: grey;"><%= @user.followings.count %></span><span style="color:grey;"> Following</span>
+<span style="font-weight: bold; color: grey;"><%= @user.follows.count %></span><span style="color:grey;"> Followers</span> 
+<br>
 
 <% if user_signed_in? %>
   <% if current_user == @user%>

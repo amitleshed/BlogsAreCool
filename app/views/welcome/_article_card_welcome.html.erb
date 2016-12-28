@@ -45,8 +45,16 @@
               <% end %>
             <% end %>
             </div>
+            <!-- ARTICLES TITLE -->
+          <div style="display: inline;">
+            <div style="text-align: center;">
+              <%= link_to(article_path(id: article.id), :href => "#view-article-welcome-#{article.id}", :id => "read-mode-icon") do %><br>
+               <i class="material-icons">library_books</i>
+              <% end %>
+            </div>
+          <h2><%= article.title %></h2>
+          </div>
 
-          <h2><%=  article.title %></h2>
           <br>
           <p class="more" style="text-align: justify; text-justify: inter-word; opacity: 0.5; letter-spacing: 1px; width: 85%; margin-left: auto; margin-right: auto;"><%=  article.description %></p>
         </div>
@@ -123,6 +131,13 @@
 
 
       </script>
+
+      <!-- VIEW ARTICLE FROM TITLE-WELCOME -->
+      <div id="view-article-welcome-<%=article.id%>" class="modal modal-custom">
+      <div class="modal-content">
+        <%= render './articles/show', :article => article, :user => user %>
+      </div>
+      </div>
 
 
         </div>

@@ -31,13 +31,19 @@
       <% end %>
     <% end %>
 
-  <!-- Modal Structure -->
+  <!-- Modal Structure --> <!-- NEW ARTICLE -->
   <div id="modal1" class="modal bottom-sheet">
     <div class="modal-content">
       <%= render './articles/article_form' %>
     </div>
   </div>
 
+    <!-- Modal Structure --> <!-- VIEW ARTICLE WELCOME-->
+  <div id="view-article-welcome" class="modal bottom-sheet">
+    <div class="modal-content">
+      <%= render './articles/article_form' %>
+    </div>
+  </div>
   <!-- Side Navbar -->
 
 <%  if user_signed_in? %>
@@ -121,11 +127,6 @@ $('.search-navbar').hide();
          $('.navbar').css("box-shadow", "none");
     }
 });
-    //Add-button color
-
-
-//Prevent page to scroll when focusing an input
-
 </script>
 
 

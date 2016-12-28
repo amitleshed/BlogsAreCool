@@ -1,0 +1,11 @@
+<div id="article-from-title">
+
+  <p id="user-link" style="display:inline;"><%= user.username%></p>
+  <p style="float: right; display: inline; color:grey;"><%= article.created_at.strftime("%d %b %Y") %></p>
+
+  <div style="margin-top: 3em;">
+    <h1><%= article.title %></h1>
+    <br>
+    <span style="color:grey;"><%= article.description %></span>
+  </div>
+</div>

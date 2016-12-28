@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   delete 'users/unfollow', to: 'users#unfollow'
 
   delete 'comments/destroy', to: 'comments#destroy'
-
+  resources :articles
   resources :articles do
     resources :comments
   end
