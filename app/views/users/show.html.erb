@@ -13,9 +13,9 @@
   <% if current_user == @user%>
   <% else%>
     <% if current_user.following?(@user.id)%>
-      <%= link_to 'Unfollow', users_unfollow_path(follow_id: @user.id), :class => "waves-effect waves-light btn teal lighten-2", :id => "follow-btn", method: :delete%>
+      <%= link_to 'Unfollow', users_unfollow_path(follow_id: @user.id), :class => "waves-effect waves-light btn teal lighten-2", :id => "unfollow-btn", method: :delete%>
     <% else %>
-      <%= link_to 'Follow', users_follow_path(follow_id: @user.id), :class => "waves-effect waves-light btn-flat", :id => "follow-btn", method: :post%>
+      <%= link_to 'Follow', users_follow_path(follow_id: @user.id), :class => "waves-effect waves-light btn grey lighten-5", :id => "follow-btn", method: :post%>
     <% end %>
   <% end %>
 <% end %>

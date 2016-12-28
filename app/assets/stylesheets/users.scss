@@ -104,6 +104,14 @@ position: fixed; margin-left: 6%;
 }
 #follow-btn{
   display: block;
+  color: black;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 0;
+}
+#unfollow-btn{
+  display: block;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
