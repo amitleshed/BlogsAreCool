@@ -31,7 +31,7 @@
             <div style="margin-left: auto; margin-right: auto;">
             <% if @user.about != nil%>
               <!-- HASHTAGS -->
-              <span><%= redner_with_hashtags_user(@user.about.downcase!) %></span>
+              <span><%= redner_with_hashtags_user(@user.about.downcase) %></span>
               <!-- HASHTAGS -->
               <% end %>
             <% if user_signed_in? %>
