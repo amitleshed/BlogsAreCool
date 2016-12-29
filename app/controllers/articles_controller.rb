@@ -19,6 +19,23 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def favorite
+    @article = Article.find(params[:id])
+    type = params[:type]
+    if type == "favorite"
+      current_user.favorites << @article
+      redirect_to :back, notice: 'You favorited #{@article.title}'
+
+    elsif type == "unfavorite"
+      current_user.favorites.delete(@article)
+      redirect_to :back, notice: 'Unfavorited #{@article.title}'
+
+    else
+      # Type missing, nothing happens
+      redirect_to :back, notice: 'Nothing happened.'
+    end
+  end
+
   def destroy
     @article = Article.find(params[:id])
     @article.destroy

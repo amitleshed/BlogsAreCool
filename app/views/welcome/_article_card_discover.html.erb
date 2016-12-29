@@ -5,16 +5,42 @@
   <%= image_tag user.avatar.url(:small), id: "img-welcome" %>
   <p style="display: inline; margin-left: 1%"><%= link_to user.username, profiles_path(user.id), id:"user-link" %></p>
   <br>
+
+  <!-- HASHTAGS -->
   <% if user.about != nil%>
-  <!-- HASHTAGS -->
   <span class="chip" id="hashtag"><%= redner_with_hashtags_welcome(user.about.downcase)%></span>
-  <!-- HASHTAGS -->
   <% end %>
+   <!-- FAVORITE AN ARTICLE ( USERS WITH HASHTAGS)-->
+ <div class="pin-icon">
+  <% if current_user %>
+    <% if current_user.favorited?(article.id) %>
+      <%= link_to(favorite_article_path(article, type: "unfavorite"), method: :put) do %>
+        <i class="fa fa-thumb-tack" aria-hidden="true" style="color: #4db6ac; font-size: 40px; margin-top: 10px;"></i>
+      <% end %>
+    <% else %>
+      <%= link_to(favorite_article_path(article, type: "favorite"), method: :put) do %>
+      <i class="fa fa-thumb-tack" aria-hidden="true" style="color: grey; font-size: 40px;"></i>
+      <% end %>
+    <% end %>
+  <% end %>
+ </div>
 <% else %>
   <p style="display: inline; margin-left: 25%"><%= link_to user.username, profiles_path(user.id), id:"user-link-no-img" %></p>
-  <br>
+   <!-- FAVORITE AN ARTICLE ( USERS WITH NO HASHTAGS)-->
+ <div class="pin-icon">
+  <% if current_user %>
+    <% if current_user.favorited?(article.id) %>
+      <%= link_to(favorite_article_path(article, type: "unfavorite"), method: :put) do %>
+        <i class="fa fa-thumb-tack" aria-hidden="true" style="color: #4db6ac; font-size: 40px; margin-top: 20px;"></i>
+      <% end %>
+    <% else %>
+      <%= link_to(favorite_article_path(article, type: "favorite"), method: :put) do %>
+      <i class="fa fa-thumb-tack" aria-hidden="true" style="color: grey; font-size: 40px; margin-top: 10px"></i>
+      <% end %>
+    <% end %>
+  <% end %>
+ </div>
 <% end %>
- 
 
     <div class="card" id="article-card">
         <div class="card-content">
@@ -39,6 +65,7 @@
               <% end %>
             <% end %>
             </div>
+
           <!-- ARTICLES TITLE -->
           <div style="display: inline;">
             <div style="text-align: center;">

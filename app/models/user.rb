@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   has_many :relationships
   has_many :follows, class_name: 'User', through: :relationships, foreign_key: :followed_id
   has_many :followings, class_name: 'User', through: :relationships, foreign_key: :following_id
+  has_many :favorite_articles
+  has_many :favorites, through: :favorite_articles, source: :article
   has_and_belongs_to_many :tags
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -67,6 +69,14 @@ end
 
 def following?(follow_id)
   if self.relationships.where(followed_id: follow_id).empty?
+      return false
+    else
+      return true
+  end
+end
+
+def favorited?(article_id)
+  if favorites.where(id: article_id).empty?
     return false
   else
     return true

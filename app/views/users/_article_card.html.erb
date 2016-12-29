@@ -1,4 +1,22 @@
 <% @user.articles.each do |article| %>
+
+ <!-- FAVORITE AN ARTICLE ( USERS WITH NO HASHTAGS)-->
+ <div class="pin-icon">
+  <% if current_user %>
+    <% if current_user.favorited?(article.id) %>
+      <%= link_to(favorite_article_path(article, type: "unfavorite"), method: :put) do %>
+        <i class="fa fa-thumb-tack" aria-hidden="true" style="color: #4db6ac; font-size: 40px; margin-top: 15px;"></i>
+      <% end %>
+    <% else %>
+      <%= link_to(favorite_article_path(article, type: "favorite"), method: :put) do %>
+      <i class="fa fa-thumb-tack" aria-hidden="true" style="color: grey; font-size: 40px;"></i>
+      <% end %>
+    <% end %>
+  <% end %>
+ </div>
+
+ <br><br>
+ 
     <div class="card" id="article-card">
         <div class="card-content">
         <span style="opacity: 0.2; margin-left: 1.5em; letter-spacing: 1px;"><%= article.created_at.strftime("%d %b %Y") %></span>

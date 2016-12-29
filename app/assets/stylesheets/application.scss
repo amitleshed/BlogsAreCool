@@ -89,6 +89,9 @@ $red: #d50000;*/
             position: relative;
             width: 50%;
            }
+           .pin-icon{
+              margin-right: 5% !important;
+            }
         }
 
  body{
@@ -244,6 +247,10 @@ li{
 .modal-custom {
   width: 90% !important;
   max-height: 80% !important;
+}
+.pin-icon{
+  float: right;
+  margin-right: 25%;
 }
 
 
