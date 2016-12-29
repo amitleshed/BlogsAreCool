@@ -1,47 +1,32 @@
-<br><br><br><br>
-<% @users.each do |user| %>
-  <% user.articles.last(1).each do |article| %>
-<% if user.avatar.present? %>
-  <%= image_tag user.avatar.url(:small), id: "img-welcome" %>
-  <p style="display: inline; margin-left: 1%"><%= link_to user.username, profiles_path(user.id), id:"user-link" %></p>
-  <br>
-
-  <!-- HASHTAGS -->
-  <% if user.about != nil%>
-  <span class="chip" id="hashtag"><%= redner_with_hashtags_welcome(user.about.downcase)%></span>
-  <% end %>
-   <!-- FAVORITE AN ARTICLE ( USERS WITH HASHTAGS)-->
- <div class="pin-icon">
-  <% if current_user %>
-    <% if current_user.favorited?(article.id) %>
-      <%= link_to(favorite_article_path(article, type: "unfavorite"), method: :put) do %>
-        <i class="fa fa-thumb-tack" aria-hidden="true" style="color: #4db6ac; font-size: 40px; margin-top: 10px;"></i>
-      <% end %>
-    <% else %>
-      <%= link_to(favorite_article_path(article, type: "favorite"), method: :put) do %>
-      <i class="fa fa-thumb-tack tooltipped" aria-hidden="true" style="color: grey; font-size: 40px;" data-position="bottom" data-delay="0" data-tooltip="Pin this post!"></i>
-      <% end %>
-    <% end %>
-  <% end %>
- </div>
+<% @user = User.find(params[:id]) %>
+<% if @user != current_user %>
+  <script type="text/javascript">
+    window.location.href="/discover"
+  </script>
 <% else %>
-  <p style="display: inline; margin-left: 25%"><%= link_to user.username, profiles_path(user.id), id:"user-link-no-img" %></p>
-   <!-- FAVORITE AN ARTICLE ( USERS WITH NO HASHTAGS)-->
+
+<% if current_user.favorites.empty? %>
+  <h1>You haven't pinned any posts yet </h1>
+<% end %>
+<% current_user.favorites.each do |article| %>
+
+ <!-- FAVORITE AN ARTICLE ( USERS WITH NO HASHTAGS)-->
  <div class="pin-icon">
   <% if current_user %>
     <% if current_user.favorited?(article.id) %>
       <%= link_to(favorite_article_path(article, type: "unfavorite"), method: :put) do %>
-        <i class="fa fa-thumb-tack" aria-hidden="true" style="color: #4db6ac; font-size: 40px; margin-top: 20px;"></i>
+        <i class="fa fa-thumb-tack" aria-hidden="true" style="color: #4db6ac; font-size: 40px; margin-top: 15px;"></i>
       <% end %>
     <% else %>
       <%= link_to(favorite_article_path(article, type: "favorite"), method: :put) do %>
-      <i class="fa fa-thumb-tack tooltipped" aria-hidden="true" style="color: grey; font-size: 40px; margin-top: 10px" data-position="bottom" data-delay="0" data-tooltip="Pin this post!" ></i>
+      <i class="fa fa-thumb-tack" aria-hidden="true" style="color: grey; font-size: 40px;" ></i>
       <% end %>
     <% end %>
   <% end %>
  </div>
-<% end %>
 
+ <br><br>
+ 
     <div class="card" id="article-card">
         <div class="card-content">
         <span style="opacity: 0.2; margin-left: 1.5em; letter-spacing: 1px;"><%= article.created_at.strftime("%d %b %Y") %></span>
@@ -66,31 +51,20 @@
             <% end %>
             </div>
 
-          <!-- ARTICLES TITLE -->
-          <div style="display: inline;">
-            <div style="text-align: center;">
-              <%= link_to(article_path(id: article.id), :href => "#view-article-discover-#{article.id}", :id => "read-mode-icon") do %><br>
-               <i class="material-icons">library_books</i>
-              <% end %>
-            </div>
-          <h2><%= article.title %></h2>
-         </div>
-
+          <h2><%=  article.title %></h2>
           <br>
           <p class="more" style="text-align: justify; text-justify: inter-word; opacity: 0.5; letter-spacing: 1px; width: 85%; margin-left: auto; margin-right: auto;"><%=  article.description %></p>
         </div>
         <p id="border"/>
-
 <!-- Comments icon -->
 <i class="fa fa-comments fa-3x" aria-hidden="true" style="opacity:0.1; margin-right: auto; margin-left: auto; margin-top: 20px;"></i>
 <% if article.comments.count == 0 %> <!-- If there are no comments - show message -->
   <p style="opacity:0.3;">No comments yet.</p>
-  <br>
 <% end %>
 <br><br>
 <% unless article.comments.empty? %>
-  <button id="show-comments-btn-<%=article.id%>" class="waves-effect waves-light btn"> Show Comments (<%= article.comments.count %>)</button>
-  <button id="hide-comments-btn-<%=article.id%>" class="waves-effect waves-light btn"> Hide Comments </button>
+  <button id="show-comments-btn-<%= article.id %>" class="waves-effect waves-light btn"> Show Comments (<%= article.comments.count %>)</button>
+  <button id="hide-comments-btn-<%= article.id %>" class="waves-effect waves-light btn"> Hide Comments </button>
 <% end %>
       <!-- Comments -->
       <div id="comments-<%= article.id %>">
@@ -118,7 +92,6 @@
               <% end %>
       </div>
 
-
 <% if user_signed_in? %> <!-- Comment form -->
   <div style="margin-left: auto; margin-right: auto; width:50%;">
       <%= form_for [article, @comment] do |f| %> 
@@ -134,32 +107,23 @@
     </div>
     <div class="mdl-card__menu" id="article-<%= article.id %>">
       
-
       <script type="text/javascript">
       //SHOW COMMENT BTN
           $('#comments-<%= article.id %>').hide();
-          $('#hide-comments-btn-<%=article.id%>').hide();
-          $('#show-comments-btn-<%=article.id%>').on('click', function() {
+          $('#hide-comments-btn-<%= article.id %>').hide();
+          $('#show-comments-btn-<%= article.id %>').on('click', function() {
              $('#comments-<%= article.id %>').show();
-             $('#hide-comments-btn-<%=article.id%>').show();
+             $('#hide-comments-btn-<%= article.id %>').show();
              $(this).hide();
           })
-          $('#hide-comments-btn-<%=article.id%>').on('click', function() {
+          $('#hide-comments-btn-<%= article.id %>').on('click', function() {
             $('#comments-<%= article.id %>').hide();
-            $('#show-comments-btn-<%=article.id%>').show();
-            $('#hide-comments-btn-<%=article.id%>').hide();
+            $('#show-comments-btn-<%= article.id %>').show();
+            $('#hide-comments-btn-<%= article.id %>').hide();
           });
 
 
       </script>
-            <!-- VIEW ARTICLE FROM TITLE-DISCOVER -->
-      <div id="view-article-discover-<%=article.id%>" class="modal modal-custom">
-      <div class="modal-content">
-        <%= render './articles/show', :article => article, :user => user %>
-      </div>
-      </div>
-
-
         </div>
   </div>
   </div>
@@ -167,3 +131,9 @@
    <br><br>
     <% end %>
   <% end %>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+    $('.tooltipped').tooltip({delay: 50});
+  });
+  </script>

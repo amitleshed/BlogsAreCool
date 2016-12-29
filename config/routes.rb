@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   delete 'users/unfollow', to: 'users#unfollow'
 
   delete 'comments/destroy', to: 'comments#destroy'
+
   resources :articles
+
   resources :articles do
     resources :comments
     put :favorite, on: :member
@@ -22,6 +24,8 @@ Rails.application.routes.draw do
   root to: 'welcome#index'
 
   get '/discover', to: 'welcome#discover'
+
+  get '/profiles/:id/favorite', to: 'users#favorite'
 
   get '/profiles/hashtag/:name', to: 'users#hashtags'
 

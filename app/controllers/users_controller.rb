@@ -31,6 +31,13 @@ class UsersController < ApplicationController
     end
   end
 
+    def favorite
+      unless user_signed_in?
+        redirect_to discover_path
+      end
+      @comment = Comment.new
+    end
+
   private
 
   def find_user

@@ -18,8 +18,13 @@
          <a href='' data-activates="slide-out" class="button-collapse"><i class="fa fa-bars" style="color: #fff; font-size: 30px;"></i></a>
       </li>
       <li>
-      <%= link_to(discover_path) do %>
-        <i class="fa fa-compass" aria-hidden="true" style="text-decoration: none; color: white; font-size: 30px;"></i>
+        <%= link_to(discover_path) do %>
+          <i class="fa fa-compass" aria-hidden="true" style="text-decoration: none; color: white; font-size: 30px;"></i>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to("/profiles/#{current_user.id}/favorite") do%>
+          <i class="fa fa-thumb-tack" aria-hidden="true" style="text-decoration: none; color: white; font-size: 30px;"></i>
         <% end %>
       </li>
       <%= render 'layouts/search_field' %>

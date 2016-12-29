@@ -18,5 +18,6 @@ class WelcomeController < ApplicationController
     if params[:search]
       @users = User.search(params[:search])
     end
+
   end
 end
