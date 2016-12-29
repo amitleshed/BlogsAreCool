@@ -6,11 +6,14 @@
 
       <!-- Side Navbar -->
       <script type="text/javascript">
-      $(".button-collapse").sideNav({
-      edge: 'left',
-      menuWidth: 165
-      }
-      );
+      $(document).ready(function() {
+        $(".button-collapse").sideNav({
+            edge: 'left',
+            menuWidth: 165
+            }
+            );
+      });
+      
       </script>
 
     <% if user_signed_in? %>
