@@ -6,7 +6,7 @@
 <% else %>
 
 <% if current_user.favorites.empty? %>
-  <h1>You haven't pinned any posts yet </h1>
+  <h1 style="padding-top: 4em;" class="animated fadeInUp">You haven't pinned any posts yet. </h1>
 <% end %>
 <% current_user.favorites.each do |article| %>
 
