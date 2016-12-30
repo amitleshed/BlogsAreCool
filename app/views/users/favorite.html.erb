@@ -1,3 +1,7 @@
+<div style="height: 50px; background-color: white; margin-top: -2em;">
+  <p style="text-align: center; padding-top: 1.7em; !important; color: grey;">Only you can see what you have saved.</p>
+</div>
+<br>
 <% @user = User.find(params[:id]) %>
 <% if @user != current_user %>
   <script type="text/javascript">
@@ -6,7 +10,7 @@
 <% else %>
 
 <% if current_user.favorites.empty? %>
-  <h1 style="padding-top: 4em;" class="animated fadeInUp">You haven't pinned any posts yet. </h1>
+  <h1 style="padding-top: 3em;" class="animated fadeInUp">You haven't pinned any posts yet. </h1>
 <% end %>
 <% current_user.favorites.each do |article| %>
 
