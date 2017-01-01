@@ -3,7 +3,7 @@
 </div>
 <br>
 <% @user = User.find(params[:id]) %>
-<% if @user != current_user %>
+<% if @user.id != current_user.id %>
   <script type="text/javascript">
     window.location.href="/discover"
   </script>
@@ -16,6 +16,7 @@
 
  <!-- FAVORITE AN ARTICLE ( USERS WITH NO HASHTAGS)-->
  <div class="pin-icon">
+ <span style="color: grey; margin-right: 1em;">Pinned by <%= article.favorited_by.count %> users </span>
   <% if current_user %>
     <% if current_user.favorited?(article.id) %>
       <%= link_to(favorite_article_path(article, type: "unfavorite"), method: :put) do %>
