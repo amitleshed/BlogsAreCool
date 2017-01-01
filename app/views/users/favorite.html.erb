@@ -17,6 +17,7 @@
 
  <!-- FAVORITE AN ARTICLE ( USERS WITH NO HASHTAGS)-->
  <div class="pin-icon" style="display:inline;">
+
  <!-- PIN COUNTER -->
  <% if article.favorited_by.count == 1%>
  <span style="color: grey; margin-right: 1em;">Pinned by <%= article.favorited_by.count %> user </span>
@@ -37,7 +38,8 @@
   <% end %>
  </div>
 
-  <p style="display: inline; margin-left: 25%"><%= link_to @user.username, profiles_path(@user.id), id:"user-link" %></p>
+  <!-- USERNAME-LINK -->
+  <p style="display: inline; margin-left: 25%"><%= link_to @user.username, profiles_path(@user.id), id:"user-link-no-img" %></p>
 
 
     <div class="card" id="article-card">
@@ -161,10 +163,3 @@
 
     <% end %>
   <% end %>
-
-
-  <script type="text/javascript">
-    $(document).ready(function(){
-    $('.tooltipped').tooltip({delay: 50});
-  });
-  </script>
