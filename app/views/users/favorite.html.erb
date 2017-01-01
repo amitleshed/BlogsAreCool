@@ -1,5 +1,6 @@
-<div style="height: 50px; background-color: white; margin-top: -2em;">
-  <p style="text-align: center; padding-top: 1.7em; !important; color: grey;">Only you can see what you have saved.</p>
+<div style="height: 100px; background-color: white; margin-top: -5em; margin-bottom: 5em;">
+<br><br>
+  <p style="text-align: center; padding-top: 11px; !important; color: grey;">Only you can see posts you have saved.</p>
 </div>
 <br>
 <% @user = User.find(params[:id]) %>
@@ -15,8 +16,14 @@
 <% current_user.favorites.each do |article| %>
 
  <!-- FAVORITE AN ARTICLE ( USERS WITH NO HASHTAGS)-->
- <div class="pin-icon">
- <span style="color: grey; margin-right: 1em;">Pinned by <%= article.favorited_by.count %> users </span>
+ <div class="pin-icon" style="display:inline;">
+ <!-- PIN COUNTER -->
+ <% if article.favorited_by.count == 1%>
+ <span style="color: grey; margin-right: 1em;">Pinned by <%= article.favorited_by.count %> user </span>
+ <% else %>
+ <span style="color: grey; margin-right: 1em;">Pinned by <%= article.favorited_by.count %> user </span>
+ <% end %>
+
   <% if current_user %>
     <% if current_user.favorited?(article.id) %>
       <%= link_to(favorite_article_path(article, type: "unfavorite"), method: :put) do %>
@@ -30,8 +37,9 @@
   <% end %>
  </div>
 
- <br><br>
- 
+  <p style="display: inline; margin-left: 25%"><%= link_to @user.username, profiles_path(@user.id), id:"user-link" %></p>
+
+
     <div class="card" id="article-card">
         <div class="card-content">
         <span style="opacity: 0.2; margin-left: 1.5em; letter-spacing: 1px;"><%= article.created_at.strftime("%d %b %Y") %></span>
@@ -56,7 +64,16 @@
             <% end %>
             </div>
 
-          <h2><%=  article.title %></h2>
+          <!-- ARTICLES TITLE -->
+          <div style="display: inline;">
+            <div style="text-align: center;">
+            <%= link_to(article_path(id: article.id), :href => "#view-article-welcome-#{article.id}", :id => "read-mode-icon") do %><br>
+            <i class="material-icons">library_books</i>
+            <% end %>
+            </div>
+            <h2><%= article.title %></h2>
+          </div>
+
           <br>
           <p class="more" style="text-align: justify; text-justify: inter-word; opacity: 0.5; letter-spacing: 1px; width: 85%; margin-left: auto; margin-right: auto;"><%=  article.description %></p>
         </div>
@@ -134,8 +151,17 @@
   </div>
   </div>
    <br><br>
+
+        <!-- VIEW ARTICLE FROM TITLE-FAVORITE -->
+      <div id="view-article-welcome-<%=article.id%>" class="modal modal-custom">
+      <div class="modal-content">
+        <%= render './articles/show', :article => article, :user => @user %>
+      </div>
+      </div>
+
     <% end %>
   <% end %>
+
 
   <script type="text/javascript">
     $(document).ready(function(){
