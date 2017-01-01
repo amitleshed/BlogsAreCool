@@ -18,14 +18,12 @@ class User < ActiveRecord::Base
   validates :username, uniqueness: true
 
   after_create do
-    unless current_user.about != nil
-     user = User.find_by(id: self.id)
-     hashtags = self.about.scan(/#\w+/)
-     hashtags.uniq.map do |hashtag|
-      tag = Tag.find_or_create_by(name: hashtag.downcase.delete('#'))
-      user.tags << tag
-     end
-    end
+   user = User.find_by(id: self.id)
+   hashtags = self.about.scan(/#\w+/)
+   hashtags.uniq.map do |hashtag|
+    tag = Tag.find_or_create_by(name: hashtag.downcase.delete('#'))
+    user.tags << tag
+   end
   end
 
   before_update do
