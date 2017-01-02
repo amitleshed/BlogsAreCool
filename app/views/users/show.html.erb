@@ -2,7 +2,7 @@
 <!-- FIXED SIDE DIV -->
 <div id="show-page-fixed-div">
 <% if @user.avatar.present? %>
-  <%= image_tag @user.avatar.url(:small), id: "img-big" %>
+  <%= image_tag @user.avatar.url(:medium), id: "img-big" %>
 <% end %>
 <br>
 <span style="font-weight: bold; color: grey;"><%= @user.followings.count %></span><span style="color:grey;"> Following</span>
