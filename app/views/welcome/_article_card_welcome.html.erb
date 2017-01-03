@@ -149,7 +149,7 @@
           $('#comments-<%= article.id %>').hide();
           $('#hide-comments-btn-<%=article.id%>').hide();
           $('#show-comments-btn-<%=article.id%>').on('click', function() {
-             $('#comments-<%= article.id %>').show();
+             $('#comments-<%= article.id %>').fadeToggle();
              $('#hide-comments-btn-<%=article.id%>').show();
              $(this).hide();
           })
