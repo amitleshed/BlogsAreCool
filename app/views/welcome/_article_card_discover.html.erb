@@ -109,7 +109,7 @@
             <!-- Deleting comment -->
             <% if user_signed_in?%>
                   <% if comment.user_id == current_user.id%>
-                      <%= link_to '', [article, comment], remote:true, method: :delete, data: { confirm: 'Are you sure?' }, id:"delete-comment", class: "fa fa-trash-o"%> 
+                      <%= link_to '', [article, comment], method: :delete, data: { confirm: 'Are you sure?' }, id:"delete-comment", class: "fa fa-trash-o"%> 
                   <% end %>
             <% end %>
 
@@ -140,7 +140,7 @@
           $('#comments-<%= article.id %>').hide();
           $('#hide-comments-btn-<%=article.id%>').hide();
           $('#show-comments-btn-<%=article.id%>').on('click', function() {
-             $('#comments-<%= article.id %>').show();
+             $('#comments-<%= article.id %>').fadeToggle();
              $('#hide-comments-btn-<%=article.id%>').show();
              $(this).hide();
           })

@@ -118,7 +118,7 @@
             <!-- DELETE COMMENT -->
             <% if user_signed_in?%>
                   <% if comment.user_id == current_user.id%>
-                      <%= link_to '', [article, comment], remote:true, method: :delete, data: { confirm: 'Are you sure?' }, id:"delete-comment", class: "fa fa-trash-o"%> 
+                      <%= link_to '', [article, comment], method: :delete, data: { confirm: 'Are you sure?' }, id:"delete-comment", class: "fa fa-trash-o"%> 
                   <% end %>
             <% end %>
 
