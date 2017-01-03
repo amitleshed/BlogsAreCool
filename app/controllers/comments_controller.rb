@@ -4,7 +4,10 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.build(comment_params)
     @comment.article_id = params[:article_id]
     if @comment.save
-      redirect_to :back
+      respond_to do |format|
+        format.js 
+        format.html { redirect_to :back }
+      end
     end
   end
 

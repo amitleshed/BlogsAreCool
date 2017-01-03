@@ -39,7 +39,7 @@
  </div>
 
   <!-- USERNAME-LINK -->
-  <p style="display: inline; margin-left: 25%"><%= link_to @user.username, profiles_path(@user.id), id:"user-link-no-img" %></p>
+  <p style="display: inline; margin-left: 25%"><%= link_to User.find(article.user_id).username, profiles_path(User.find(article.user_id)), id:"user-link-no-img" %></p>
 
 
     <div class="card" id="article-card">

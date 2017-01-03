@@ -24,10 +24,16 @@ class UsersController < ApplicationController
   def vote
    article = Article.find(params[:article_id])
     if current_user.voted?(article.id)
-      redirect_to :back
+      respond_to do |format|
+        format.js 
+        format.html { redirect_to :back }
+      end
     else
     current_user.vote(article.id)
-    redirect_to :back
+      respond_to do |format|
+        format.js 
+        format.html { redirect_to :back }
+      end
     end
   end
 
