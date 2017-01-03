@@ -19,19 +19,7 @@
 </form>
 
 </div>
-<br><br><br>
 
-<nav class="search-form">
-  <div class="nav-wrapper">
-    <form action="/" accept-charset="UTF-8" method="get">
-      <div class="input-field">
-        <input name="search" id="search" type="search" required >
-        <label for="search"><i class="material-icons">search</i>Search for username</label>
-        <i class="material-icons">close</i>
-      </div>
-    </form>
-  </div>
-</nav>
 <% if current_user.relationships.count == 0 %>
 <h1 style="color: grey; opacity:0.7; margin-top: 5em; font-size: 30px;">You haven't followed anyone yet.</h1>
 <% else %>
@@ -53,3 +41,13 @@
     <span style="color:#e0e0e0; opacity: 0.8;">BlogsAreCool © 2016</span>
   </div>
 </div>
+
+<script type="text/javascript">
+  $('.search-navbar').hide();
+    $(window).scroll(function() {
+
+    if ($(window).scrollTop() > 300) {
+      $('.search-navbar').hide();
+    }
+});
+</script>

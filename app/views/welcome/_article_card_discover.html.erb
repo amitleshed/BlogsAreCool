@@ -165,5 +165,24 @@
   </div>
   </div>
    <br><br>
+
     <% end %>
   <% end %>
+<br><br>
+<br><br>
+  <% @users.order(username: :asc).each do |user| %>
+     <% if user.avatar.present? %>
+<div style="">
+  <%= image_tag user.avatar.url(:small), id: "img-welcome" %>
+  <p style="display: inline; margin-left: 1%;"><%= link_to user.username, profiles_path(user.id), id:"user-link" %></p>
+    <!-- HASHTAGS -->
+    <br>
+  <% if user.about != nil%>
+    <span class="chip" id="hashtag"><%= redner_with_hashtags_welcome(user.about.downcase)%></span>
+  <% end %>
+  <br>
+  <span id="hashtag" class="chip">Articles: <%= user.articles.count %></span>
+</div>
+<br><br><br>
+<% end %>
+<% end %>
