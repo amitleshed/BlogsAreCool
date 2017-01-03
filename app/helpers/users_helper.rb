@@ -3,5 +3,5 @@ module UsersHelper
       if about != nil
       about.gsub(/#\w+/){|word| link_to word, "/profiles/hashtag/#{word.delete('#')}", :id => "hashtags-user"}.html_safe
     end
-    end
+  end
 end
