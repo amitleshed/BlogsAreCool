@@ -1,6 +1,9 @@
 <br><br><br><br>
 <% @users.order(username: :asc).each do |user| %>
   <% user.articles.last(1).each do |article| %>
+
+<div id="whole-post"> <!-- WHOLE POST -->
+
 <% if user.avatar.present? %>
   <%= image_tag user.avatar.url(:small), id: "img-welcome" %>
   <p style="display: inline; margin-left: 1%"><%= link_to user.username, profiles_path(user.id), id:"user-link" %></p>
@@ -56,11 +59,10 @@
           <!-- Votes counter -->
             <span id="votes-article-<%=article.id%>"><%= article.votes.count %></span>
 
-
             <br>
             <% if user_signed_in? %> <!-- Deleting an article -->
               <% if current_user.id == article.user_id %>
-                <%= link_to '',  article,class: "fa fa-trash-o",id:"glyphicons", method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%= link_to '',  article, remote: true ,class: "fa fa-trash-o delete-article" ,id:"glyphicons", method: :delete, data: { confirm: 'Are you sure?' } %>
                 <br>
               <% end %>
             <% end %>
@@ -109,7 +111,7 @@
             <!-- Deleting comment -->
             <% if user_signed_in?%>
                   <% if comment.user_id == current_user.id%>
-                      <%= link_to '', [article, comment], method: :delete, data: { confirm: 'Are you sure?' }, id:"delete-comment", class: "fa fa-trash-o"%> 
+                      <%= link_to '', [article, comment], method: :delete, data: { confirm: 'Are you sure?' }, id:"delete-comment", :remote => true, :class => 'fa fa-trash-o'%> 
                   <% end %>
             <% end %>
 
@@ -168,6 +170,9 @@
 
     <% end %>
   <% end %>
+
+  </div> <!-- THE WHOLE POST -->
+  
 <br><br>
 <br><br>
   <% @users.order(username: :asc).each do |user| %>

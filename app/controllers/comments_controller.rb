@@ -12,7 +12,12 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.destroy
     @comment.save
-    redirect_to :back
+    
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.json { head :no_content }
+      format.js   { render :layout => false }
+    end
   end 
 
   private

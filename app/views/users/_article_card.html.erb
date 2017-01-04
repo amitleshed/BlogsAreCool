@@ -1,5 +1,7 @@
 <% @user.articles.each do |article| %>
 
+<div id="whole-post"> <!-- WHOLE POST -->
+
  <!-- FAVORITE AN ARTICLE ( USERS WITH NO HASHTAGS)-->
  <div class="pin-icon">
   <% if current_user %>
@@ -34,7 +36,7 @@
             <br>
             <% if user_signed_in? %> <!-- Deleting an article -->
               <% if current_user.id == article.user_id %>
-                <%= link_to '',  article, class: "fa fa-trash-o",id:"glyphicons", method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%= link_to '',  article, remote: true ,class: "fa fa-trash-o delete-article",id:"glyphicons", method: :delete, data: { confirm: 'Are you sure?' } %>
                 <br>
               <% end %>
             <% end %>
@@ -119,3 +121,4 @@
   </div>
    <br><br>
     <% end %>
+    </div> <!-- THE WHOLE POST -->
